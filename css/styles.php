@@ -8,7 +8,6 @@
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
 
 <!-- FONTAWESOME -->
-
 <link rel="stylesheet" href="/css/cssFont/font-awesome.min.css">
 <link rel="stylesheet" href="../css/cssFont/font-awesome.min.css">
 
