@@ -2,7 +2,7 @@
 <div class="sectionPersonajes">
     <!-- Aquí hay que hacer un bucle para crear los personajes -->
     <?php
-        include 'src/cargarPersonajes.php';
+    
 
         for ($i = 0; $i < count($arrayObjetosPersonajes); $i++) {
             echo '<div class="containerPersonajes">
