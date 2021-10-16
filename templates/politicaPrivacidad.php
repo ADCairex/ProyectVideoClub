@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Política Privacidad</title>
         <?php
-            include '../css/styles.php';
+            include '../CSS/styles.php';
         ?>
     </head>
     <body>
