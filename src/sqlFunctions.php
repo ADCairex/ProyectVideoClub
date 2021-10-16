@@ -9,18 +9,24 @@
 
     }
 
-    function addViewUser() {
-
+    //Add a view to a video from an user
+    function addViewUser($idUser, $idProduct) {
+        global $dbServer;
+        $sql = "INSERT INTO `BuyUserProduct` (`idBuyUserProduct`, `idUser`, `idProduct`) VALUES (NULL, '".$idUser."', '".$idProduct."', 0";
+        $dbServer->query($sql);
     }
 
-    function addBuyUser() {
-
+    //Add new video to an user inventory
+    function addBuyUser($idUser, $idProduct) {
+        global $dbServer;
+        $sql = "INSERT INTO `BuyUserProduct` (`idBuyUserProduct`, `idUser`, `idProduct`) VALUES (NULL, '".$idUser."', '".$idProduct."'";
+        $dbServer->query($sql);
     }
 
     //Add new product to the product list
     function addNewProduct($name, $idAuthor, $price, $routProduct) {
         global $dbServer;
-        $sql = "INSERT INTO `Product` (`idProduct`, `name`, `idAuthor`, `price`, `routProduct`) VALUES (10, '".$name."', '".$idAuthor."', '".$price."', '".$routProduct."');";
+        $sql = "INSERT INTO `Product` (`idProduct`, `name`, `idAuthor`, `price`, `routProduct`) VALUES (NULL, '".$name."', '".$idAuthor."', '".$price."', '".$routProduct."');";
         $dbServer->query($sql);
     }
 
@@ -31,8 +37,11 @@
         $dbServer->query($sql);
     }
 
-    function addCategoryToo() {
-
+    //Add new category to a video
+    function addCategoryToo($idCategory, $idProduct) {
+        global $dbServer;
+        $sql = "INSERT INTO `ProductCategory` (`idProductCategory`, `idCategory`, `idProduct`) VALUES (NULL, '".$idCategory."', '".$idProduct."'";
+        $dbServer->query($sql);        
     }
 
     function deleteCategoryToo() {
@@ -45,5 +54,19 @@
 
     function addProductToo() {
 
+    }
+
+    //Add new user to the DataBase
+    function addNewUser($username, $pass, $name, $surnames, $addr) {
+        global $dbServer;
+        $sql = "INSERT INTO `User` (`idUser`, `username`, `pass`, `name`, `surnames`, `addr`) VALUES (NULL, '".$username."', '".$pass."', '".$name."', '".$surnames."', '".$addr."');";
+        $dbServer->query($sql);
+    }
+
+    //Get the user data from the DataBase
+    function getUserData() {
+        global $dbServer;
+        $sql = "SELECT * FROM `User`";
+        $dbServer->query($sql);
     }
 ?>
