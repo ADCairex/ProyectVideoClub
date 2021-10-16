@@ -10,7 +10,7 @@
                                             echo '../index.php';
                                         }
                                     ?>
-                                    "><img src="imagenes/tittleImage.png" onerror="this.src='../imagenes/tittleImage.png';" width="50px" height="50px"></a></div>
+                                    "><img src="IMAGES/tittleImage.png" onerror="this.src='../IMAGES/tittleImage.png';" width="50px" height="50px"></a></div>
         <div class="menu">
             <ul>
                 <li><a href="
@@ -35,7 +35,7 @@
                                 }
                             ?>
                             ">Política Privacidad</a></li>
-                <li><a href="https://es-la.facebook.com/Warcraft/"><img src="imagenes/facebook.png" onerror="this.src='../imagenes/facebook.png';" width="50px" height="50px"></a></li>
+                <li><a href="https://es-la.facebook.com/Warcraft/"><img src="IMAGES/facebook.png" onerror="this.src='../IMAGES/facebook.png';" width="50px" height="50px"></a></li>
             </ul>
         </div>
     </div>
