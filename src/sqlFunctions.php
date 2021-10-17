@@ -5,7 +5,16 @@
         echo 'Error: No se puedo conectar a MySQL';
     }
 
-    function createBill() {
+    //Create line in a bill
+    function addLineSale($idLineSale, $idBill, $idProduct, $idUser, $quantity) {
+        global $dbServer;
+        $userData = getProductData();
+        $sql ="INSERT INTO `LineSale`(`idLineSale`, `idBill`, `idProduct`, `quantity`, `price`) VALUES ('".$idLineSale."','".$idBill."','".$idProduct."','".$quantity."','')";
+        $dbServer->query($sql);
+    }
+
+    //Create new bill
+    function createBill($idUser) {
 
     }
 
@@ -64,9 +73,18 @@
     }
 
     //Get the user data from the DataBase
-    function getUserData() {
+    function getUserData($idUser) {
         global $dbServer;
-        $sql = "SELECT * FROM `User`";
-        $dbServer->query($sql);
+        $sql = "SELECT * FROM `User` WHERE `idUser` = ".$idUser;
+        $x = $dbServer->query($sql);
+        return $x->fetch_row();
+    }
+
+    //Get the product data from the DataBase
+    function getProductData($idProduct) {
+        global $dbServer;
+        $sql = "SELECT * FROM `Product` WHERE `idProduct` = ".$idProduct;
+        $x = $dbServer->query($sql);
+        return $x->fetch_row();
     }
 ?>
