@@ -6,17 +6,39 @@
     }
 
     //Create line in a bill
-    function addLineSale($idLineSale, $idBill, $idProduct, $idUser, $quantity) {
+    function addLineSale($idLineSale, $idBill, $idProduct, $quantity, $idPrice) {
         global $dbServer;
-        $userData = getProductData();
-        $sql ="INSERT INTO `LineSale`(`idLineSale`, `idBill`, `idProduct`, `quantity`, `price`) VALUES ('".$idLineSale."','".$idBill."','".$idProduct."','".$quantity."','')";
+        $sql = "INSERT INTO `LineSale`(`idLineSale`, `idBill`, `idProduct`, `quantity`, `price`) VALUES ('".$idLineSale."','".$idBill."','".$idProduct."','".$quantity."','".$idPrice."')";
         $dbServer->query($sql);
     }
 
     //Create new bill
-    function createBill($idUser) {
+    function createBill($idUser, $arrayLines) {
+        global $dbServer;
 
+        //Asign the idBill
+        $sql = "SELECT MAX(idBill) AS idBill FROM Bill";
+        $idBill = $dbServer->query($sql)->fetch_assoc();
+        $idBill = $idBill["idBill"];
+        if ($idBill == 'NULL') {
+            $idBill = 1;
+        } else {
+            $idBill += 1;
+        }
+        $sql = "INSERT INTO `Bill` (`idBill`, `idUser`, `total`) VALUES ($idBill, '2', '1');";
+        $dbServer->query($sql);
+
+        $maxIdLineSale = count($arrayLines);
+        $idLineSale = 1;
+
+        //arrayLines (format) 0=>idProduct, 1=>price, 2=>quantity
+        foreach ($arrayLines as &$i) {
+            addLineSale($idLineSale, $idBill, $i[0], $i[2], $i[1]);
+            $idLineSale += 1;
+        }
     }
+
+    createBill(1, $x);
 
     //Add a view to a video from an user
     function addViewUser($idUser, $idProduct) {
