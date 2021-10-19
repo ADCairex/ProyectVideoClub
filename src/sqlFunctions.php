@@ -69,14 +69,17 @@
     //Add new category to a video
     function addCategoryToo($idCategory, $idProduct) {
         global $dbServer;
-        $sql = "INSERT INTO `ProductCategory` (`idProductCategory`, `idCategory`, `idProduct`) VALUES (NULL, '".$idCategory."', '".$idProduct."'";
+        $sql = "INSERT INTO ProductCategories (idCategory, idProduct) VALUES (NULL, ".$idCategory.", ".$idProduct."";
         $dbServer->query($sql);        
     }
 
-    function deleteCategoryToo() {
-
+    //Delete a category from a product
+    function deleteCategoryToo($idCategory, $idProduct) {
+        global $dbServer;
+        $sql = "DELETE FROM ProductCategories WHERE idCategory = ".$idCategory." AND idProduct = ".$idProduct."";
+        $dbServer->query($sql);
     }
-    
+
     function deleteProductToo() {
 
     }
