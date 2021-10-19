@@ -14,8 +14,12 @@
     }
 
     //Create new bill
-    function createBill($idUser) {
-
+    function createBill($idUser, $shopArray) {
+        global $dbServer;
+        $cont = 1;
+        foreach ($shopArray as &$line) {
+            addLineSale($cont, $idBill, $line['idProduct'], $idUser, $line['quantity']);
+        }
     }
 
     //Add a view to a video from an user
@@ -77,7 +81,7 @@
         global $dbServer;
         $sql = "SELECT * FROM `User` WHERE `idUser` = ".$idUser;
         $x = $dbServer->query($sql);
-        return $x->fetch_row();
+        return $x->fetch_assoc();
     }
 
     //Get the product data from the DataBase
@@ -85,6 +89,13 @@
         global $dbServer;
         $sql = "SELECT * FROM `Product` WHERE `idProduct` = ".$idProduct;
         $x = $dbServer->query($sql);
-        return $x->fetch_row();
+        return $x->fetch_assoc();
+    }
+
+    function getBillData() {
+        global $dbServer;
+        $sql = "SELECT * FROM `Bill`";
+        $x = $dbServer->query($sql);
+        return $x->fetch_assoc();
     }
 ?>
