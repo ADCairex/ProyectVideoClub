@@ -10,7 +10,6 @@
     <body>
         <?php
             include 'templates/header.php';
-            include 'templates/personajes.php';
             include 'templates/algorithm.php';
             include 'templates/footer.php';
             include 'scripts.php';
