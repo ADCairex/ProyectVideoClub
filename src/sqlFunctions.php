@@ -38,8 +38,6 @@
         }
     }
 
-    createBill(1, $x);
-
     //Add a view to a video from an user
     function addViewUser($idUser, $idProduct) {
         global $dbServer;
