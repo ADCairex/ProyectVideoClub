@@ -1,6 +1,6 @@
 <?php
     try {
-        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectoVideoClub', 'root', '');
+        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub', 'root', '');
     } catch (PDOException $e) {
         echo "!Error!: " . $e->getMessage();
     }
@@ -88,12 +88,20 @@
         $sql->execute(array($idCategory, $idProduct));
     }
 
-    function deleteProductToo() {
-
+    //Delete a product from the user inventory
+    function deleteProductToo($idUser, $idProduct) {
+        global $dbServer;
+        $sql = "DELETE FROM BuyUserProduct WHERE idUser = ? AND idProduct = ?";
+        $sql = $dbServer->prepare($sql);
+        $sql->execute(array($idUser, $idProduct));
     }
 
-    function addProductToo() {
-
+    //Add product to user inventory
+    function addProductToo($idUser, $idProduct) {
+        global $dbServer;
+        $sql = "INSERT INTO BuyUserProduct (idBuyUserProduct, idUser, idProduct) VALUES (NULL, ?, ?)";
+        $sql = $dbServer->prepare($sql);
+        $sql->execute(array($idUser, $idProduct));
     }
 
     //Add new user to the DataBase
