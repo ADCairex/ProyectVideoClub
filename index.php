@@ -14,5 +14,8 @@
             include 'templates/footer.php';
             include 'scripts.php';
         ?>
+        <div class="content">
+            
+        </div>
     </body>
 </html>
