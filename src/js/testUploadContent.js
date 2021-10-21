@@ -1,5 +1,5 @@
 $(document).ready(function() {
     $("#click").click(function() {
-        $("#content").load('templates/algorithm.php');
+        $("#content").load('templates/listProducts.php');
     });
 });

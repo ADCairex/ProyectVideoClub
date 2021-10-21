@@ -122,6 +122,16 @@
         return $prepare->fetchAll()[0];
     }
 
+    //Get an array of all the product from the DataBase
+    function getAllProducts() {
+        global $dbServer;
+        $sql = "SELECT * FROM Product";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute();
+
+        return $prepare->fetchAll();
+    }
+
     //Get the product data from the DataBase
     function getProductData($idProduct) {
         global $dbServer;
@@ -129,6 +139,6 @@
         $prepare = $dbServer->prepare($sql);
         $result = $prepare->execute(array($idProduct));
 
-        return $prepare->fetchAll()[0];
-    }
+        return $prepare->fetchAll();
+    }    
 ?>
