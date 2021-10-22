@@ -21,6 +21,7 @@
         <div class="content" id="content">
             
         </div>
-        <button id="click">Click</button>
+        <button id="clickIndividual">Videos de un usuario</button>
+        <button id="clickAll">Todos los videos</button>
     </body>
 </html>

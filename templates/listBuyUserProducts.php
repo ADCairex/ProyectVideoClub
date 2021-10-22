@@ -12,6 +12,8 @@
         }
 
         include '../src/sqlFunctions.php';
+
+        //Change the param of the function by the idUser who is logged right now
         $products = getBuyUserProducts(3);
         foreach ($products as $i) {
             if (str_contains($i['routProduct'], '.mp3')) {
