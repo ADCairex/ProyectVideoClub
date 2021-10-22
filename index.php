@@ -7,7 +7,7 @@
             include 'css/styles.php';
         ?>
         <script src="src/js/jquery-3.6.0.js"></script>
-        <script src="src/js/testUploadContent.js"></script>
+        <script src="src/js/listAllProducts.js"></script>
     </head>
     <body>
         <?php

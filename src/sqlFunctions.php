@@ -140,5 +140,17 @@
         $result = $prepare->execute(array($idProduct));
 
         return $prepare->fetchAll();
-    }    
+    }
+
+    function getBuyUserProducts($idUser) {
+        global $dbServer;
+        $sql = "SELECT Product.idProduct, Product.name, Product.idAuthor, Product.price, Product.routProduct FROM Product 
+                INNER JOIN BuyUserProduct ON Product.idProduct = BuyUserProduct.idProduct 
+                INNER JOIN User ON User.idUser = BuyUserProduct.idUser 
+                WHERE User.idUser = ?;";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute(array($idUser));
+
+        return $prepare->fetchAll();
+    }
 ?>

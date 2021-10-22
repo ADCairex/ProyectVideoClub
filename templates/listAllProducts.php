@@ -1,4 +1,6 @@
-<h2 class="tituloTable">TUS VICIOS</h2>
+<h2 class="tituloTable">
+    Todos los videos
+</h2>
 <div class="sectionProducts">
 
     <?php
@@ -8,6 +10,7 @@
                 return '' === $needle || false !== strpos($haystack, $needle);
             }
         }
+
         include '../src/sqlFunctions.php';
         $products = getAllProducts();
         foreach ($products as $i) {
