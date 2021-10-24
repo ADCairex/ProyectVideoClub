@@ -1,4 +1,5 @@
 function createDivProduct(product , divContainer) {
+    console.log(product.routProduct.includes('.mp4'));
     if (product.routProduct.includes('.mp3')) {
         let div = '<div class="containerBox">';
                 div += '<div class="productBoxMusic">';
@@ -24,11 +25,11 @@ function createDivProduct(product , divContainer) {
                 div += '<div>';
             div += '</div>';
     } else if (product.routProduct.includes('.mp4')) {
-        let div = '<div class="containerBox">';
+        var div = '<div class="containerBox">';
                 div += '<div class="productBoxVideo">';
                     div += '<div class="videoBox">';
                         div += '<video controls id="'+product.idProduct+'">';
-                            div += '<source src="'+product.idProduct+'" type="video/mp4">'
+                            div += '<source src="'+product.routProduct+'" type="video/mp4">'
                         div += '</video>';
                     div += '</div>';
                 div += '<div class="videoBoxDescription">';
@@ -51,7 +52,7 @@ function createDivProduct(product , divContainer) {
         let div = 'Error en la ruta de la base de datos';
     }
 
-    divContainer.innerHtML = div;
+    divContainer.innerHTML += div;
 }
 
 function loadProductsInDiv(productsJSON, divContainer) {
@@ -66,7 +67,9 @@ function loadProductsInDiv(productsJSON, divContainer) {
 }
 
 function loadProducts() {
+    
     let divContainer = document.getElementById('content');
+    divContainer.innerHTML = 'alñsdkfjasdklñfjlñ';
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -81,6 +84,6 @@ function loadProducts() {
             }
         }
     }
-    xhttp.open('GET', '../php/listBuyUserProducts.php', true);
+    xhttp.open('GET', 'src/php/listBuyUserProducts.php', true);
     xhttp.send();
 }
