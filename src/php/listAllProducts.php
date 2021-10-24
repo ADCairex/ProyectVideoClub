@@ -1,5 +1,5 @@
 <h2 class="tituloTable">
-    Tus videos
+    Todos los videos
 </h2>
 <div class="sectionProducts">
 
@@ -11,10 +11,8 @@
             }
         }
 
-        include '../src/sqlFunctions.php';
-
-        //Change the param of the function by the idUser who is logged right now
-        $products = getBuyUserProducts(3);
+        include 'sqlFunctions.php';
+        $products = getAllProducts();
         foreach ($products as $i) {
             if (str_contains($i['routProduct'], '.mp3')) {
                 echo '
