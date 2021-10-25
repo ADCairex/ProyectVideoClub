@@ -11,7 +11,7 @@
             }
         }
 
-        include '../src/sqlFunctions.php';
+        include 'sqlFunctions.php';
         $products = getAllProducts();
         foreach ($products as $i) {
             if (str_contains($i['routProduct'], '.mp3')) {
