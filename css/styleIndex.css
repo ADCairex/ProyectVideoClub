@@ -177,25 +177,36 @@ border-radius: 1rem;
 
 /* LOGIN FORM */
 
-.loginForm{
-    height: 90%;
+.containerPrincipal{
     display: flex;
-    background-image: url(../IMAGES/cover.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin: auto;
+    min-width: 360px;
 }
-.loginForm form{
-    padding: 2rem;
-    background-color: #80808096;
-    border-radius: 1rem;
+.containerForm{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
 }
-.loginForm input{
-    margin: 1rem 0;
+.containerForm form{
+    width: 100%;
+    margin-bottom: 3rem;
 }
-.loginForm button{
-    margin: 1rem 0;
+.containerForm button{
+    width: 33%;
+    min-width: 75px;
+    margin: auto;
 }
+
+.containerFormButtons{
+    display: flex;
+    flex-direction: revert;
+    justify-content: center;
+}
+
 
 /* PRODUCT BOX MUSIC & VIDEO */
 

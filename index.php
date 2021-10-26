@@ -15,4 +15,4 @@
             include 'scripts.php';
         ?>
     </body>
-</html>
+</html>  
