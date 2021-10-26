@@ -69,7 +69,7 @@ function loadProductsInDiv(productsJSON, divContainer) {
 function loadProducts() {
     
     let divContainer = document.getElementById('content');
-    divContainer.innerHTML = 'alñsdkfjasdklñfjlñ';
+    divContainer.innerHTML = '';
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
