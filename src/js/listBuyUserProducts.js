@@ -1,11 +1,10 @@
 function createDivProduct(product , divContainer) {
-    console.log(product.routProduct.includes('.mp4'));
     if (product.routProduct.includes('.mp3')) {
-        let div = '<div class="containerBox">';
+        var div = '<div class="containerBox">';
                 div += '<div class="productBoxMusic">';
                     div += '<div class="musicBox">';
                         div += '<audio controls id="'+product.idProduct+'">';
-                            div += '<source src="'+product.idProduct+'" type="audio/mpeg">'
+                            div += '<source src="'+product.routProduct+'" type="audio/mp3">'
                         div += '</audio>';
                     div += '</div>';
                 div += '<div class="musicBoxDescription">';
@@ -66,7 +65,7 @@ function loadProductsInDiv(productsJSON, divContainer) {
     }
 }
 
-function loadProducts() {
+function loadProductsIndex() {
     
     let divContainer = document.getElementById('content');
     divContainer.innerHTML = '';

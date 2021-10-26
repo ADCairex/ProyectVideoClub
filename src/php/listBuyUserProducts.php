@@ -1,25 +1,25 @@
 
-    <?php
+<?php
 
-        include 'sqlFunctions.php';
-        include 'utils.php';
+    include 'sqlFunctions.php';
+    include 'utils.php';
 
-        //Change the param of the function by the idUser who is logged right now
-        
+    //Change the param of the function by the idUser who is logged right now
+    
 
-        try {
-            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                $products = getBuyUserProducts(2);
-                
-                if (is_null($products)) {
-                    echo getResponse('KO', 'Error interno de base de datos');
-                } else {
-                    echo getResponse('OK', 'Contendio obtenido correctamente', $products);
-                }
+    try {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $products = getBuyUserProducts(3);
+            
+            if (is_null($products)) {
+                echo getResponse('KO', 'Error interno de base de datos');
             } else {
-                echo getResponse('KO', 'Error interno');
+                echo getResponse('OK', 'Contendio obtenido correctamente', $products);
             }
-        } catch (Exception $e) {
-            echo getResponse('Ko', 'Error interno');
-        } 
-    ?>
+        } else {
+            echo getResponse('KO', 'Error interno');
+        }
+    } catch (Exception $e) {
+        echo getResponse('Ko', 'Error interno');
+    } 
+?>

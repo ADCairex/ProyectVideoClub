@@ -19,10 +19,11 @@
             include 'scripts.php';
             */
         ?>
+        <a href="http://localhost/ProyectVideoClub/templates/shopping.php">Shop</a>
         <div class="content" id="content">
             
         </div>
-        <button id="clickIndividual" onclick="loadProducts()">Videos de un usuario</button>
-        <button id="clickAll">Todos los videos</button>
+        <button onclick="loadProductsIndex()">Videos de un usuario</button>
+        <button>Todos los videos</button>
     </body>
 </html>
