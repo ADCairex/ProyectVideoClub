@@ -129,7 +129,7 @@
         $prepare = $dbServer->prepare($sql);
         $result = $prepare->execute();
 
-        return $prepare->fetchAll();
+        return $prepare->fetchAll(); 
     }
 
     //Get the product data from the DataBase
