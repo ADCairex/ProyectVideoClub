@@ -7,23 +7,20 @@
             include 'css/styles.php';
         ?>
         <script src="src/js/jquery-3.6.0.js"></script>
-        <script src="src/js/listAllProducts.js"></script>
         <script src="src/js/listBuyUserProducts.js"></script>
     </head>
     <body>
         <?php
-            /*
             include 'templates/header.php';
             include 'templates/algorithm.php';
             include 'templates/footer.php';
             include 'scripts.php';
-            */
         ?>
         <a href="http://localhost/ProyectVideoClub/templates/shopping.php">Shop</a>
         <div class="content" id="content">
             
         </div>
-        <button onclick="loadProductsIndex()">Videos de un usuario</button>
+        <button onclick="loadBuyUserProducts()">Videos de un usuario</button>
         <button>Todos los videos</button>
     </body>
 </html>

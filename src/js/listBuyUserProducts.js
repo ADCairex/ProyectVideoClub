@@ -65,7 +65,7 @@ function loadProductsInDiv(productsJSON, divContainer) {
     }
 }
 
-function loadProductsIndex() {
+function loadBuyUserProducts() {
     
     let divContainer = document.getElementById('content');
     divContainer.innerHTML = '';
