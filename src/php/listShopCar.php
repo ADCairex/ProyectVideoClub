@@ -7,12 +7,12 @@
 
     try {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $products = getAllProducts();
-            $x = getResponse('OK', 'Contendio obtenido correctamente', $products);
+            $products = $_COOKIE['shopCar'];
+            $x = getResponse('OK', 'Contendio obtenido correctamente', json_decode($products));
             if (is_null($products)) {
                 echo getResponse('KO', 'Error interno de base de datos');
             } else {
-                echo getResponse('OK', 'Contendio obtenido correctamente', $products);
+                echo getResponse('OK', 'Contendio obtenido correctamente', json_decode($products));
             }
         } else {
             echo getResponse('KO', 'Error interno');

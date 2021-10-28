@@ -1,6 +1,6 @@
 <?php
     try {
-        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub', 'root', '');
+        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub;charset=UTF8', 'root', '');
     } catch (PDOException $e) {
         echo "!Error!: " . $e->getMessage();
     }
@@ -139,7 +139,7 @@
         $prepare = $dbServer->prepare($sql);
         $result = $prepare->execute(array($idProduct));
 
-        return $prepare->fetchAll();
+        return $prepare->fetchAll()[0];
     }
 
     function getBuyUserProducts($idUser) {

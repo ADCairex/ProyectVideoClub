@@ -11,7 +11,7 @@
         </div>
         <div class="menuUser">
         <a href="index.php"><img src="IMAGES/tittleImage.png"
-                    onerror="this.src='../IMAGES/tittleImage.png';" width="50px" height="50px"></a>
+            onerror="this.src='../IMAGES/tittleImage.png';" width="50px" height="50px"></a>
         </div>
     </div>
 

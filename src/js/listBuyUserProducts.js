@@ -86,3 +86,8 @@ function loadBuyUserProducts() {
     xhttp.open('GET', 'src/php/listBuyUserProducts.php', true);
     xhttp.send();
 }
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+    
+    loadBuyUserProducts();
+});

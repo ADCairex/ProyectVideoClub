@@ -1,7 +1,6 @@
 function createDivProduct(product , divContainer) {
-    console.log(product.routProduct.includes('.mp4'));
     if (product.routProduct.includes('.mp3')) {
-        let div = '<div class="containerBox">';
+        var div = '<div class="containerBox">';
                 div += '<div class="productBoxMusic">';
                     div += '<div class="musicBox">';
                         div += '<audio controls id="'+product.idProduct+'">';
@@ -14,7 +13,7 @@ function createDivProduct(product , divContainer) {
                     div += '</div>';
                 div += '<div class="metaMusicBoxDescription">';
                     div += '<div>';
-                        div += '<h3>Titulo</h3'; //Title of the video
+                        div += '<h3>'+product.name+'</h3'; //Title of the video
                     div += '</div>';
                     div += '<div>';
                         div += '<h4> 19 visualizaciones</h4>'; //Number of video views
@@ -23,7 +22,7 @@ function createDivProduct(product , divContainer) {
                         div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
                     div += '</div>';
                     div += '<div>';
-                        div += '<button onclick="addProductToCarShop('+product.idProduct+')">Agregar al carrito</button>'; //Change for an icon of a buy cest
+                        div += '<button onclick="addToShopCar('+product.idProduct+')">Agregar al carrito</button>'; //Change for an icon of a buy cest
                     div += '</div>';
                 div += '<div>';
             div += '</div>';
@@ -41,7 +40,7 @@ function createDivProduct(product , divContainer) {
                     div += '</div>';
                 div += '<div class="metaVideoBoxDescription">';
                     div += '<div>';
-                        div += '<h3>Titulo</h3'; //Title of the video
+                        div += '<h3>'+product.name+'</h3'; //Title of the video
                     div += '</div>';
                     div += '<div>';
                         div += '<h4> 19 visualizaciones</h4>'; //Number of video views
@@ -50,12 +49,12 @@ function createDivProduct(product , divContainer) {
                         div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
                     div += '</div>';
                     div += '<div>';
-                        div += '<button onclick="addProductToCarShop('+product.idProduct+')">Agregar al carrito</button>'; //Change for an icon of a buy cest
+                        div += '<button onclick="addToShopCar('+product.idProduct+')">Agregar al carrito</button>'; //Change for an icon of a buy cest
                     div += '</div>';
                 div += '<div>';
             div += '</div>';
     } else {
-        let div = 'Error en la ruta de la base de datos';
+        var div = 'Error en la ruta de la base de datos';
     }
 
     divContainer.innerHTML += div;
@@ -94,3 +93,7 @@ function loadProductsShopCar() {
     xhttp.send();
 }
 
+document.addEventListener("DOMContentLoaded", function(event) { 
+    
+    loadProductsShopCar();
+});

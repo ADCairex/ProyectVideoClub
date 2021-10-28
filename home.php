@@ -12,15 +12,14 @@
     <body>
         <?php
             include 'templates/header.php';
-            include 'templates/algorithm.php';
-            include 'templates/footer.php';
-            include 'scripts.php';
         ?>
-        <a href="http://localhost/ProyectVideoClub/templates/shopping.php">Shop</a>
         <div class="content" id="content">
             
         </div>
-        <button onclick="loadBuyUserProducts()">Videos de un usuario</button>
-        <button>Todos los videos</button>
+        <a href="http://localhost/ProyectVideoClub/templates/shopping.php">Shop</a>
+        <?php
+            include 'templates/footer.php';
+            include 'scripts.php';
+        ?>
     </body>
 </html>
