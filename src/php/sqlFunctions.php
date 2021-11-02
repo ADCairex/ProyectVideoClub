@@ -1,8 +1,21 @@
 <?php
     try {
-        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub', 'root', '');
+        $dbServer = new PDO('mysql:host=localhost;dbname=ProjectVideo', 'root', 'root');
     } catch (PDOException $e) {
         echo "!Error!: " . $e->getMessage();
+    }
+
+    function getDBConnection() {
+        $ip="localhost";
+        $dbName="ProjectVideo";
+        $user="root";
+        $pass="root";
+        
+        $cadConnection= "mysql:dbname=".$dbName.";host=".$ip.";charset=UTF8";
+    
+        $bd = new PDO($cadConnection, $user, $pass);
+    
+        return $bd;
     }
 
     //Create line in a bill
