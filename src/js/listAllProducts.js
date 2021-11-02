@@ -13,13 +13,16 @@ function createDivProduct(product , divContainer) {
                     div += '</div>';
                 div += '<div class="metaMusicBoxDescription">';
                     div += '<div>';
-                        div += '<h3>'+product.name+'</h3'; //Title of the video
+                        div += '<h3>'+product.name+'</h3>'; //Title of the video
                     div += '</div>';
                     div += '<div>';
                         div += '<h4> 19 visualizaciones</h4>'; //Number of video views
                     div += '</div>';
                     div += '<div>';
                         div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
+                    div += '</div>';
+                    div += '<div>';
+                        div += '<h4>Cantidad: <input type="text" id="quantity'+product.idProduct+'"></h4>'; //Quantity of products you buy
                     div += '</div>';
                     div += '<div>';
                         div += '<button onclick="addToShopCar('+product.idProduct+')">Agregar al carrito</button>'; //Change for an icon of a buy cest
@@ -40,13 +43,16 @@ function createDivProduct(product , divContainer) {
                     div += '</div>';
                 div += '<div class="metaVideoBoxDescription">';
                     div += '<div>';
-                        div += '<h3>'+product.name+'</h3'; //Title of the video
+                        div += '<h3>'+product.name+'</h3>'; //Title of the video
                     div += '</div>';
                     div += '<div>';
                         div += '<h4> 19 visualizaciones</h4>'; //Number of video views
                     div += '</div>';
                     div += '<div>';
                         div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
+                    div += '</div>';
+                    div += '<div>';
+                        div += '<h4>Cantidad: <input type="text" id="quantity'+product.idProduct+'"></h4>'; //Quantity of products you buy
                     div += '</div>';
                     div += '<div>';
                         div += '<button onclick="addToShopCar('+product.idProduct+')">Agregar al carrito</button>'; //Change for an icon of a buy cest

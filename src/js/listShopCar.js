@@ -9,6 +9,9 @@ function createDivProductCar(product , divContainer) {
                         div += '<h3>Precio unitario: '+product.price+'</h3>'
                     div += '</div>';
                     div += '<div>';
+                        div += '<h4>Precio total: '+product.linePrice+'</h4>'; //Number visualizacions bought
+                    div += '</div>';
+                    div += '<div>';
                         div += '<h4>Cantidad: '+product.quantity+'</h4>'; //Number visualizacions bought
                     div += '</div>';
                 div += '<div>';
@@ -21,6 +24,9 @@ function createDivProductCar(product , divContainer) {
                     div += '</div>';
                     div += '<div>';
                         div += '<h3>Precio unitario: '+product.price+'</h3>'
+                    div += '</div>';
+                    div += '<div>';
+                        div += '<h4>Precio total: '+product.linePrice+'</h4>'; //Number visualizacions bought
                     div += '</div>';
                     div += '<div>';
                         div += '<h4>Cantidad: '+product.quantity+'</h4>'; //Number visualizacions bought
@@ -42,6 +48,7 @@ function loadProductsInDivCar(productsJSON, divContainer) {
             let product = productsJSON.lines[i];
             createDivProductCar(product, divContainer);
         }
+        divContainer.innerHTML += '<button>Finalizar factura</button>';
     }
 }
 
@@ -53,7 +60,6 @@ function loadProductsShopCarCookies() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log('Respuesta de las cookies: ' + this.responseText);
             let response = JSON.parse(this.responseText);
 
             if (response.status == 'OK') {

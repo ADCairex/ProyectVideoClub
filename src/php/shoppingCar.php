@@ -4,7 +4,7 @@
 
     try {
         $idProduct = $_POST['idProduct'];
-        $quantity = $_POST['quantity'];
+        $quantity = intval($_POST['quantity']);
 
         $productData = getProductData($idProduct);
 
@@ -14,12 +14,15 @@
             $totalPrice = $quantity * $productData['price'];
             $shopCarArray = [
                 'lines' => [
-                    'idProduct' => $productData['idProduct'],
-                    'name' => $productData['name'],
-                    'author' => $author['username'],
-                    'price' => $productData['price'],
-                    'routProduct' => $productData['routProduct'],
-                    "quantity" => $quantity
+                    [
+                        'idProduct' => $productData['idProduct'],
+                        'name' => $productData['name'],
+                        'author' => $author['username'],
+                        'price' => floatval($productData['price']),
+                        'routProduct' => $productData['routProduct'],
+                        'quantity' => $quantity,
+                        'linePrice' => $quantity * $productData['price']
+                    ]
                 ],
                 'totalPrice' => $totalPrice
             ];
@@ -30,10 +33,11 @@
 
             $found = false;
 
-            foreach ($shopCarArray['lines'] as $i) {
+            foreach ($shopCarArray->lines as $i) {
                 if (strcmp($i->idProduct, $idProduct) === 0) {
                     $i->quantity += $quantity;
-                    $shopCarArray['totalPrice'] += $quantity * $i->price;
+                    $shopCarArray->totalPrice += $quantity * $i->price;
+                    $i->linePrice = $i->quantity * $i->price;
                     
 
                     $found = true;
@@ -49,11 +53,12 @@
                     'author' => $author['username'],
                     'price' => $productData['price'],
                     'routProduct' => $productData['routProduct'],
-                    "quantity" => $quantity
+                    'quantity' => $quantity,
+                    'linePrice' => $quantity * $productData['price']
                 ];
 
-                array_push($shopCarArray['lines'], $newProduct);
-                $shopCarArray['lines']['totalPrice'] += $newProduct['price'] * $newProduct['quantity'];
+                array_push($shopCarArray->lines, $newProduct);
+                $shopCarArray->totalPrice += $newProduct['price'] * $newProduct['quantity'];
             }
 
             setcookie('shopCar', json_encode($shopCarArray, true), time() + 3600);
