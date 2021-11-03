@@ -1,6 +1,6 @@
 <?php
-    include 'sqlFunctions.php';
-    include 'utils.php';
+    include '../../base/utils/sqlFunctions.php';
+    include '../../base/utils/utils.php';
 
     //Change the param of the function by the idUser who is logged right now
 

@@ -69,7 +69,7 @@ function loadProductsShopCarCookies() {
             }
         }
     }
-    xhttp.open('GET', '../src/php/listShopCar.php', true);
+    xhttp.open('GET', 'php/getShopCar.php', true);
     xhttp.send();
 }
 

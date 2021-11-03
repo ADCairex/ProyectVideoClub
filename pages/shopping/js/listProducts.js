@@ -4,12 +4,12 @@ function createDivProduct(product , divContainer) {
                 div += '<div class="productBoxMusic">';
                     div += '<div class="musicBox">';
                         div += '<audio controls id="'+product.idProduct+'">';
-                            div += '<source src="../'+product.routProduct+'" type="audio/mpeg">'
+                            div += '<source src="../base/'+product.routProduct+'" type="audio/mpeg">'
                         div += '</audio>';
                     div += '</div>';
                 div += '<div class="musicBoxDescription">';
                     div += '<div class="avatar">';
-                        div += '<a href="#.php"><img src="../IMAGES/tittleImage.png" onerror="" width="50px" height="50px"></a>'; //Profile of the user who uploaded the video
+                        div += '<a href="#.php"><img src="../../IMAGES/tittleImage.png" onerror="" width="50px" height="50px"></a>'; //Profile of the user who uploaded the video
                     div += '</div>';
                 div += '<div class="metaMusicBoxDescription">';
                     div += '<div>';
@@ -34,12 +34,12 @@ function createDivProduct(product , divContainer) {
                 div += '<div class="productBoxVideo">';
                     div += '<div class="videoBox">';
                         div += '<video controls id="'+product.idProduct+'">';
-                            div += '<source src="../'+product.routProduct+'" type="video/mp4">'
+                            div += '<source src="../base/'+product.routProduct+'" type="video/mp4">'
                         div += '</video>';
                     div += '</div>';
                 div += '<div class="videoBoxDescription">';
                     div += '<div class="avatar">';
-                        div += '<a href="#.php"><img src="../IMAGES/tittleImage.png" onerror="" width="50px" height="50px"></a>'; //Profile of the user who uploaded the video
+                        div += '<a href="#.php"><img src="../../IMAGES/tittleImage.png" onerror="" width="50px" height="50px"></a>'; //Profile of the user who uploaded the video
                     div += '</div>';
                 div += '<div class="metaVideoBoxDescription">';
                     div += '<div>';
@@ -95,7 +95,7 @@ function loadProductsShopCar() {
             }
         }
     }
-    xhttp.open('GET', '../src/php/listAllProducts.php', true);
+    xhttp.open('GET', 'php/getProducts.php', true);
     xhttp.send();
 }
 

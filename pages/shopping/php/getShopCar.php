@@ -1,18 +1,18 @@
 <?php
-    include 'sqlFunctions.php';
-    include 'utils.php';
+    include '../../base/utils/sqlFunctions.php';
+    include '../../base/utils/utils.php';
 
     //Change the param of the function by the idUser who is logged right now
 
 
     try {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $products = $_COOKIE['shopCar'];
-            $x = getResponse('OK', 'Contendio obtenido correctamente', json_decode($products));
+            $products = json_decode($_COOKIE['shopCar']);
+            $x = getResponse('OK', 'Contendio obtenido correctamente', $products);
             if (is_null($products)) {
                 echo getResponse('KO', 'Error interno de base de datos');
             } else {
-                echo getResponse('OK', 'Contendio obtenido correctamente', json_decode($products));
+                echo getResponse('OK', 'Contendio obtenido correctamente', $products);
             }
         } else {
             echo getResponse('KO', 'Error interno');

@@ -5,10 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Shop Products</title>
-        <script src="../src/js/jquery-3.6.0.js"></script>
-        <script src="../src/js/listAllProducts.js"></script>
-        <script src="../src/js/addToShopCar.js"></script>
-        <script src="../src/js/listShopCar.js"></script>
+        <?php include 'loadLibreries.html' ?>
         <style>
             #cookieCar {
                 position: absolute;

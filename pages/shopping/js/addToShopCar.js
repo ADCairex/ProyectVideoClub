@@ -16,7 +16,7 @@ function addToShopCar(idProduct) {
     let quantity = document.getElementById('quantity'+idProduct).value
     let product="idProduct="+idProduct+"&quantity="+quantity;
 
-	xhttp.open("POST", "../src/php/shoppingCar.php", true);	
+	xhttp.open("POST", "php/shoppingCar.php", true);	
 	xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xhttp.send(product);
     	

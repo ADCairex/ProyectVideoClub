@@ -1,6 +1,6 @@
 <?php
-    include 'utils.php';
-    include 'sqlFunctions.php';
+    include '../../base/utils/sqlFunctions.php';
+    include '../../base/utils/utils.php';
 
     try {
         $idProduct = $_POST['idProduct'];
