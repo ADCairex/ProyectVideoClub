@@ -8,7 +8,7 @@
     //Create line in a bill
     function addLineSale($idLineSale, $idBill, $idProduct, $quantity, $price) {
         global $dbServer;
-        $sql = "INSERT INTO LineSale (idLineSale, idBill, idProduct, quantity, price) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO LineSale (idLineSale, idBill, idProduct, quantity, linePrice) VALUES (?, ?, ?, ?, ?)";
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($idLineSale, $idBill, $idProduct, $quantity, $price));
     }
@@ -33,9 +33,8 @@
         $maxIdLineSale = count($arrayLines);
         $idLineSale = 1;
 
-        //arrayLines format [0=>idProduct, 1=>price, 2=>quantity]
         foreach ($arrayLines as &$i) {
-            addLineSale($idLineSale, $idBill, $i[0], $i[2], $i[1]);
+            addLineSale($idLineSale, $idBill, $i->idProduct, $i->price, $i->quantity);
             $idLineSale += 1;
         }
     }
