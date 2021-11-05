@@ -6,7 +6,7 @@
         if (isset($_COOKIE['shopCar'])) {
             $shopCar = json_decode($_COOKIE['shopCar']);
 
-            createBill(3, $shopCar->lines); //The first param is the idUser
+            createBill(3, $shopCar); //The first param is the idUser
             echo getResponse('OK', 'Factura generada correctamente');
             setcookie('shopCar', '', true);
         }

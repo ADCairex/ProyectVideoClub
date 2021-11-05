@@ -26,14 +26,14 @@
         } else {
             $idBill += 1;
         }
-        $sql = "INSERT INTO Bill (idBill, idUser, total) VALUES (?, ?, 0)";
+        $sql = "INSERT INTO Bill (idBill, idUser, total) VALUES (?, ?, ?)";
         $sql = $dbServer->prepare($sql);
-        $sql->execute(array($idBill, $idUser));
+        $sql->execute(array($idBill, $idUser, $arrayLines->totalPrice));
 
-        $maxIdLineSale = count($arrayLines);
+        $maxIdLineSale = count($arrayLines->lines);
         $idLineSale = 1;
 
-        foreach ($arrayLines as &$i) {
+        foreach ($arrayLines->lines as &$i) {
             addLineSale($idLineSale, $idBill, $i->idProduct, $i->price, $i->quantity);
             $idLineSale += 1;
         }
