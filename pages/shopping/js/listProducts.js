@@ -22,6 +22,9 @@ function createDivProduct(product , divContainer) {
                         div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
                     div += '</div>';
                     div += '<div>';
+                        div += '<h4>Quedan: '+product.stock+'</h4>'; //Time ago the video was upload
+                    div += '</div>';
+                    div += '<div>';
                         div += '<h4>Cantidad: <input type="text" id="quantity'+product.idProduct+'"></h4>'; //Quantity of products you buy
                     div += '</div>';
                     div += '<div>';
@@ -50,6 +53,9 @@ function createDivProduct(product , divContainer) {
                     div += '</div>';
                     div += '<div>';
                         div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
+                    div += '</div>';
+                    div += '<div>';
+                        div += '<h4>Quedan: '+product.stock+'</h4>'; //Time ago the video was upload
                     div += '</div>';
                     div += '<div>';
                         div += '<h4>Cantidad: <input type="text" id="quantity'+product.idProduct+'"></h4>'; //Quantity of products you buy

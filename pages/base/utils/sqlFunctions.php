@@ -34,6 +34,10 @@
         $idLineSale = 1;
 
         foreach ($arrayLines->lines as &$i) {
+            $newStock = getProductData($i->idProduct);
+            $newStock = intval($newStock['stock']) - $i->quantity;
+    
+            updateStockProduct($i->idProduct, $newStock);
             addLineSale($idLineSale, $idBill, $i->idProduct, $i->price, $i->quantity);
             $idLineSale += 1;
         }
@@ -109,6 +113,13 @@
         $sql = "INSERT INTO User (idUser, username, pass, name, surnames, email) VALUES (NULL, ?, ?, ?, ?, ?)";
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($username, $pass, $name, $surnames, $email));
+    }
+
+    function updateStockProduct($idProduct, $newStock) {
+        global $dbServer;
+        $sql = "UPDATE Product SET stock = ? WHERE Product.idProduct = ?";
+        $sql = $dbServer->prepare($sql);
+        $sql->execute(array($newStock, $idProduct));
     }
 
     //Get the user data from the DataBase

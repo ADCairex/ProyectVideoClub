@@ -10,61 +10,66 @@
 
         $author = getUserData($productData['idAuthor']);
 
-        if (!isset($_COOKIE['shopCar'])) {
-            $totalPrice = $quantity * $productData['price'];
-            $shopCarArray = [
-                'lines' => [
-                    [
+        if (($productData['stock'] - $quantity) <= 0) {
+            echo getResponse('KO', 'Sin stock');
+        } else {
+
+            if (!isset($_COOKIE['shopCar'])) {
+                $totalPrice = $quantity * $productData['price'];
+                $shopCarArray = [
+                    'lines' => [
+                        [
+                            'idProduct' => $productData['idProduct'],
+                            'name' => $productData['name'],
+                            'author' => $author['username'],
+                            'price' => floatval($productData['price']),
+                            'routProduct' => $productData['routProduct'],
+                            'quantity' => $quantity,
+                            'linePrice' => $quantity * $productData['price']
+                        ]
+                    ],
+                    'totalPrice' => $totalPrice
+                ];
+
+                setcookie('shopCar', json_encode($shopCarArray, true), time() + 3600);
+            } else {
+                $shopCarArray = json_decode($_COOKIE['shopCar']);
+
+                $found = false;
+
+                foreach ($shopCarArray->lines as $i) {
+                    if (strcmp($i->idProduct, $idProduct) === 0) {
+                        $i->quantity += $quantity;
+                        $shopCarArray->totalPrice += $quantity * $i->price;
+                        $i->linePrice = $i->quantity * $i->price;
+                        
+
+                        $found = true;
+                        break;
+                    }
+                }
+
+                if (!$found) {
+
+                    $newProduct = [
                         'idProduct' => $productData['idProduct'],
                         'name' => $productData['name'],
                         'author' => $author['username'],
-                        'price' => floatval($productData['price']),
+                        'price' => $productData['price'],
                         'routProduct' => $productData['routProduct'],
                         'quantity' => $quantity,
                         'linePrice' => $quantity * $productData['price']
-                    ]
-                ],
-                'totalPrice' => $totalPrice
-            ];
+                    ];
 
-            setcookie('shopCar', json_encode($shopCarArray, true), time() + 3600);
-        } else {
-            $shopCarArray = json_decode($_COOKIE['shopCar']);
-
-            $found = false;
-
-            foreach ($shopCarArray->lines as $i) {
-                if (strcmp($i->idProduct, $idProduct) === 0) {
-                    $i->quantity += $quantity;
-                    $shopCarArray->totalPrice += $quantity * $i->price;
-                    $i->linePrice = $i->quantity * $i->price;
-                    
-
-                    $found = true;
-                    break;
+                    array_push($shopCarArray->lines, $newProduct);
+                    $shopCarArray->totalPrice += $newProduct['price'] * $newProduct['quantity'];
                 }
+
+                setcookie('shopCar', json_encode($shopCarArray, true), time() + 3600);
             }
 
-            if (!$found) {
-
-                $newProduct = [
-                    'idProduct' => $productData['idProduct'],
-                    'name' => $productData['name'],
-                    'author' => $author['username'],
-                    'price' => $productData['price'],
-                    'routProduct' => $productData['routProduct'],
-                    'quantity' => $quantity,
-                    'linePrice' => $quantity * $productData['price']
-                ];
-
-                array_push($shopCarArray->lines, $newProduct);
-                $shopCarArray->totalPrice += $newProduct['price'] * $newProduct['quantity'];
-            }
-
-            setcookie('shopCar', json_encode($shopCarArray, true), time() + 3600);
+            echo getResponse('OK', 'Agregado correctamente');
         }
-
-        echo getResponse('OK', 'Agregado correctamente');
     } catch (Exception $e) {
         echo getResponse('KO', 'Error no se ha añadido la cookie');
     }

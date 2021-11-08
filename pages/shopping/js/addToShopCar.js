@@ -1,4 +1,6 @@
 function addToShopCar(idProduct) {
+
+
     
     var xhttp = new XMLHttpRequest();				
 	xhttp.onreadystatechange = async function() {
@@ -8,7 +10,7 @@ function addToShopCar(idProduct) {
                 alert("Añadido al carrito!");
                 loadProductsShopCarCookies();
             } else {
-                alert("Se ha producido un error, inténtalo de nuevo más tarde");
+                alert("Se ha producido un error, " + response.message);
             }
 		}
 	}
