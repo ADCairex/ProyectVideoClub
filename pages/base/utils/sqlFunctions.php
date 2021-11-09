@@ -152,6 +152,15 @@
         return $prepare->fetchAll();
     }
 
+    function getProductByCategory($idCategory) {
+        global $dbServer;
+        $sql = "SELECT Product.idProduct, Product.name, Product.idAuthor, Product.price, Product.stock, Product.routProduct FROM Product INNER JOIN ProductCategories on Product.idProduct = ProductCategories.idProduct INNER JOIN Category ON Category.idCategory = ProductCategories.idCategory WHERE Category.idCategory = ?";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute(array($idCategory));
+
+        return $prepare->fetchAll();
+    }
+
     //Get the product data from the DataBase
     function getProductData($idProduct) {
         global $dbServer;

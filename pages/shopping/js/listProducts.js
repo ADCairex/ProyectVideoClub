@@ -83,7 +83,33 @@ function loadProductsInDiv(productsJSON, divContainer) {
     }
 }
 
-function loadProductsShopCar() {
+function loadProductsCat(idCategory) {
+    let divContainer = document.getElementById('shopContainer');
+    divContainer.innerHTML = '';
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+
+            let response = JSON.parse(this.responseText);
+
+            if (response.status == 'OK') {
+                loadProductsInDiv(response.data, divContainer);
+            } else {
+                alert('Se ha producido un error prueba mas tarde');
+            }
+        }
+    }
+
+    let params = 'id=' + idCategory;
+
+    xhttp.open('POST', 'php/getProductsCat.php', true);
+    xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhttp.send(params);    
+}
+
+function loadProducts() {
     
     let divContainer = document.getElementById('shopContainer');
     divContainer.innerHTML = '';
@@ -107,5 +133,5 @@ function loadProductsShopCar() {
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     
-    loadProductsShopCar();
+    loadProducts();
 });

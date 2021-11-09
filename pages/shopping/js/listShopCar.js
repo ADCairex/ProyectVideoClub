@@ -50,7 +50,7 @@ function loadProductsInDivCar(productsJSON, divContainer) {
     }
 }
 
-function loadProductsShopCarCookies() {
+function loadProductsShopCar() {
     
     let divContainer = document.getElementById('ulCookieCar');
     divContainer.innerHTML = '';
@@ -73,5 +73,5 @@ function loadProductsShopCarCookies() {
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     
-    loadProductsShopCarCookies();
+    loadProductsShopCar();
 });

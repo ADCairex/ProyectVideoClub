@@ -1,13 +1,11 @@
 function createDivCategory(category, divContainer) {
     var div = '<li>';
-            div += '<a href="#">';
-                div += '<div>';
-                    div += '<img src="#">'
-                    div += '<p>';
-                        div += category.name;
-                    div += '</p>';
-                div += '</div>';
-            div += '</a>';
+            div += '<div onclick="loadProductsCat('+category.idCategory+')">';
+                div += '<img src="#">'
+                div += '<p>';
+                    div += category.name;
+                div += '</p>';
+            div += '</div>';
         div += '</li>';
 
     divContainer.innerHTML += div;
