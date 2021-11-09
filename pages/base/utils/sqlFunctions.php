@@ -122,6 +122,16 @@
         $sql->execute(array($newStock, $idProduct));
     }
 
+    //Get an array of all categories from de DataBase
+    function getAllCategories() {
+        global $dbServer;
+        $sql = "SELECT * FROM Category";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute();
+
+        return $prepare->fetchAll();
+    }
+
     //Get the user data from the DataBase
     function getUserData($idUser) {
         global $dbServer;

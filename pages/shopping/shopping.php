@@ -7,7 +7,7 @@
         <title>Shop Products</title>
         <?php include 'loadLibreries.html' ?>
         <style>
-            #cookieCar {
+            #divCookieCar {
                 position: absolute;
                 top: 100px;
                 left: 1500px;
@@ -15,11 +15,18 @@
         </style>
     </head>
     <body>
-        <div id="shopContainer">
+        <div class="filterCategory">
+            <ul id="categoryContainer">
 
+            </ul>
         </div>
-        <div id="cookieCar">
+        <div id="shopContainer">
+            
+        </div>
+        <div id="divCookieCar">
+            <ul id="ulCookieCar">
 
+            </ul>
         </div>
     </body>
 </html>

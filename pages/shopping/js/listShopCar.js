@@ -1,38 +1,34 @@
 function createDivProductCar(product , divContainer) {
     if (product.routProduct.includes('.mp3')) {
-        var div = '<div class="containerBox">';
-                div += '<div class="metaMusicBoxDescription">';
-                    div += '<div>';
-                        div += '<h3>Titulo de la cancion: '+product.name+'</h3>'; //Title of the video
-                    div += '</div>';
-                    div += '<div>';
-                        div += '<h3>Precio unitario: '+product.price+'</h3>'
-                    div += '</div>';
-                    div += '<div>';
-                        div += '<h4>Cantidad: '+product.quantity+'</h4>'; //Number visualizacions bought
-                    div += '</div>';
-                    div += '<div>';
-                        div += '<h4>Precio total: '+product.linePrice+'</h4>'; //Number visualizacions bought
-                    div += '</div>';
+        var div = '<li class="metaMusicBoxDescription">';
                 div += '<div>';
-            div += '</div>';
+                    div += '<h3>Titulo de la cancion: '+product.name+'</h3>'; //Title of the video
+                div += '</div>';
+                div += '<div>';
+                    div += '<h3>Precio unitario: '+product.price+'</h3>'
+                div += '</div>';
+                div += '<div>';
+                    div += '<h4>Cantidad: '+product.quantity+'</h4>'; //Number visualizacions bought
+                div += '</div>';
+                div += '<div>';
+                    div += '<h4>Precio total: '+product.linePrice+'</h4>'; //Number visualizacions bought
+                div += '</div>';
+            div += '</li>';
     } else if (product.routProduct.includes('.mp4')) {
-        var div = '<div class="containerBox">';
-                div += '<div class="metaVideoBoxDescription">';
-                    div += '<div>';
-                        div += '<h3>Titulo del video: '+product.name+'</h3>'; //Title of the video
-                    div += '</div>';
-                    div += '<div>';
-                        div += '<h3>Precio unitario: '+product.price+'</h3>'
-                    div += '</div>';
-                    div += '<div>';
-                        div += '<h4>Cantidad: '+product.quantity+'</h4>'; //Number visualizacions bought
-                    div += '</div>';
-                    div += '<div>';
-                        div += '<h4>Precio total: '+product.linePrice+'</h4>'; //Number visualizacions bought
-                    div += '</div>';
+        var div = '<li class="metaVideoBoxDescription">';
                 div += '<div>';
-            div += '</div>';
+                    div += '<h3>Titulo del video: '+product.name+'</h3>'; //Title of the video
+                div += '</div>';
+                div += '<div>';
+                    div += '<h3>Precio unitario: '+product.price+'</h3>'
+                div += '</div>';
+                div += '<div>';
+                    div += '<h4>Cantidad: '+product.quantity+'</h4>'; //Number visualizacions bought
+                div += '</div>';
+                div += '<div>';
+                    div += '<h4>Precio total: '+product.linePrice+'</h4>'; //Number visualizacions bought
+                div += '</div>';
+            div += '</li>';
     } else {
         var div = 'Error en la ruta de la base de datos';
     }
@@ -48,13 +44,15 @@ function loadProductsInDivCar(productsJSON, divContainer) {
             let product = productsJSON.lines[i];
             createDivProductCar(product, divContainer);
         }
-        divContainer.innerHTML += '<button onclick="finishBill()">Finalizar factura</button>';
+        if (!divContainer.contains(document.getElementById('billBt'))) {
+            document.getElementById('divCookieCar').innerHTML += '<button id="billBt" onclick="finishBill()">Finalizar factura</button>';
+        }
     }
 }
 
 function loadProductsShopCarCookies() {
     
-    let divContainer = document.getElementById('cookieCar');
+    let divContainer = document.getElementById('ulCookieCar');
     divContainer.innerHTML = '';
 
     var xhttp = new XMLHttpRequest();
