@@ -152,6 +152,7 @@
         return $prepare->fetchAll();
     }
 
+    //Gen an array of all the product by her category from the DataBase
     function getProductByCategory($idCategory) {
         global $dbServer;
         $sql = "SELECT Product.idProduct, Product.name, Product.idAuthor, Product.price, Product.stock, Product.routProduct FROM Product INNER JOIN ProductCategories on Product.idProduct = ProductCategories.idProduct INNER JOIN Category ON Category.idCategory = ProductCategories.idCategory WHERE Category.idCategory = ?";
