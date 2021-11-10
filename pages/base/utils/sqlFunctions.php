@@ -1,6 +1,6 @@
 <?php
     try {
-        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub;charset=UTF8', 'root', '');
+        $dbServer = new PDO('mysql:host=localhost;dbname=ProjectVideo;charset=UTF8', 'root', 'root');
     } catch (PDOException $e) {
         echo "!Error!: " . $e->getMessage();
     }
@@ -109,6 +109,44 @@
         $sql = "INSERT INTO User (idUser, username, pass, name, surnames, email) VALUES (NULL, ?, ?, ?, ?, ?)";
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($username, $pass, $name, $surnames, $email));
+
+
+        // try {
+        //     $bd = getDBConexion();
+    
+            
+        //     $email = $data["email"]; 
+        //     $sql = $bd->prepare("SELECT * FROM usuarios where email = :email");
+        //     $sql->bindParam(':email', $email);
+        //     $sql->execute();
+        //     $rows= $sql->rowCount();
+    
+        //     if(!is_null($bd)) { 
+        //         if ($rows == 0){
+        //             $sqlPrepared = $bd->prepare("
+        //                 INSERT INTO usuarios (nombre,email,pass)
+        //                 VALUES (:nombre,:email,:pass)
+        //             ");
+        //             $params = array(
+        //                 ':nombre' => $data["nombre"],
+        //                 ':email' => $data["email"],
+        //                 ':pass' => $data["pass"]
+        //             );
+        //             session_start();
+        //             $_SESSION["email"]= $email;
+        //             $_SESSION["nombre"]= $nombre;
+        //             $sqlPrepared->execute($params);
+    
+        //             return true;
+        //         } else {
+        //             return false;
+        //         }
+        //     }
+        // } catch (PDOException $e) {
+        //     echo $e->getMessage();
+        //    return null;
+        // }
+        
     }
 
     //Get the user data from the DataBase

@@ -4,6 +4,7 @@ body, html {
     margin: 0;
     display: flex;
     flex-direction: column;
+    background-color: #efefef;
     justify-content: space-between;
     
 
@@ -12,9 +13,79 @@ body, html {
 header{
     width: 100%;
     margin-bottom: 50px;
-    position: fixed;
     z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 9px 12px 0px #000000; 
+box-shadow: 0px 9px 12px 0px #bfbfbf;
 }
+.headerRight{
+    display: flex;
+    flex-direction: row;
+}
+.headerRight a{
+padding: 0 2rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.headerRight img{
+    max-width: 32px;
+    height: auto;
+}
+header div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+#cookieCar{
+    display: flex;
+    text-align: center;
+}
+
+
+
+/* BODY  */
+.container-main{
+    margin-top: 7rem;
+}
+.content-main{
+    display: flex !important;
+}
+.content-main:first-child{
+    width: 100px;
+}
+
+.filterCategory{
+    position: fixed;
+}
+.container-main-bill #cookieCar{
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+}
+.container-main-bill #cookieCar .containerBox{
+width: 100% !important;
+margin-bottom: 0;
+}
+.container-main-bill #cookieCar .containerBox h3{
+    margin: 0.2rem 0;
+    }
+.container-main-bill #cookieCar .containerBox .metaVideoBoxDescription{
+    display: flex;
+    flex-direction: revert;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    }
+
+    .container-main-bill
 
 form{
     display: flex;
@@ -29,6 +100,8 @@ form{
     margin: 0;
     padding: 0;
 }
+
+
 
 .iconTittle {
     align-items: center;
@@ -62,6 +135,17 @@ p{
 }
 
 /* HEADER & FOOTER */
+
+footer{
+    position: sticky !important;
+    bottom: 0 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+    -webkit-box-shadow: 0px -8px 12px 0px #000000; 
+    box-shadow: 0px -8px 12px 0px #bfbfbf;
+}
 
 .container_header, .container_footer{
     height: auto;
@@ -177,6 +261,15 @@ border-radius: 1rem;
 
 /* LOGIN FORM */
 
+#formsDiv form{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    background-color: #fff;
+}
+#formsDiv form input{
+   height: 2rem;
+}
 .loginForm{
     height: 90%;
     display: flex;
@@ -197,36 +290,47 @@ border-radius: 1rem;
     margin: 1rem 0;
 }
 
+
 /* PRODUCT BOX MUSIC & VIDEO */
 
-.sectionProducts{
+#shopContainer{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 1rem;;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+
 }
 
+
 .containerBox{
-    width: 33.33%;
+    width: 25%;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 2rem;
 
 }
 
+
+
 .videoBox, .musicBox, .videoBoxDescription, .musicBoxDescription{
-    padding: 1rem;
+    margin: 0 1rem;
     min-height: 150px;
     height: 50%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 .videoBoxDescription, .musicBoxDescription{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-color: #fff;
+    border-end-end-radius: 1.5rem;
+    border-end-start-radius: 1.5rem;
+    justify-content: space-evenly;
 
 }
 .videoBoxDescription .avatar, .musicBoxDescription .avatar{
@@ -238,6 +342,10 @@ border-radius: 1rem;
 
 .videoBoxDescription h3{
     margin: 0 !important;
+    padding-bottom: 1rem;
+    text-align: center;
+
+    border-bottom: 1px solid grey;
 }
 .musicBox{
     display: flex;
@@ -247,6 +355,8 @@ border-radius: 1rem;
 .videoBox video{
     width: 100%;
     height: auto;
+    border-start-end-radius: 1.5rem;
+    border-start-start-radius: 1.5rem;
 }
 .musicBox audio{
     width: 100%;
@@ -263,22 +373,13 @@ margin: auto;
 padding: 0 .5rem;
 }
 
-/* SECTION */
-
-.contenidoPreguntas{
-    padding-top: 6rem;
-    background-image: url(../IMAGES/cover.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    height: inherit;
-    padding: 10%;
+.metaVideoBoxDescription{
+    width: 100%;
 }
 
-.contenidoPreguntas p{
-    padding: 1rem 0;
+/* SECTION */
+.features{
+    margin: auto;
 }
 /* RESPONSIVE SECTION*/
 
