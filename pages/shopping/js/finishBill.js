@@ -7,6 +7,7 @@ function finishBill() {
 
             if (response.status == 'OK') {
                 alert('Factura generada con exito');
+                document.getElementById('billBt').remove();
                 loadProductsShopCar();
                 loadProducts();
             } else {

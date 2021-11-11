@@ -6,7 +6,7 @@
     }
 
     //Create line in a bill
-    function addLineSale($idLineSale, $idBill, $idProduct, $quantity, $price) {
+    function addLineSale($idLineSale, $idBill, $idProduct, $price, $quantity) {
         global $dbServer;
         $sql = "INSERT INTO LineSale (idLineSale, idBill, idProduct, quantity, linePrice) VALUES (?, ?, ?, ?, ?)";
         $sql = $dbServer->prepare($sql);
@@ -37,7 +37,7 @@
             $newStock = intval($newStock['stock']) - $i->quantity;
     
             updateStockProduct($i->idProduct, $newStock);
-            addLineSale($idLineSale, $idBill, $i->idProduct, $i->price, $i->quantity);
+            addLineSale($idLineSale, $idBill, $i->idProduct, $i->linePrice, $i->quantity);
             $idLineSale += 1;
         }
     }

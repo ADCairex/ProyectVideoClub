@@ -15,7 +15,7 @@ function addToShopCar(idProduct) {
 		}
 	}
 
-    let quantity = document.getElementById('quantity'+idProduct).value
+    let quantity = document.getElementById('quantity'+idProduct).value;
     let product="idProduct="+idProduct+"&quantity="+quantity;
 
 	xhttp.open("POST", "php/shoppingCar.php", true);	
