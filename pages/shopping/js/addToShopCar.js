@@ -8,7 +8,7 @@ function addToShopCar(idProduct) {
             let response = JSON.parse(this.responseText);
             if(response.status=="OK") {
                 alert("Añadido al carrito!");
-                loadProductsShopCarCookies();
+                loadProductsShopCar();
             } else {
                 alert("Se ha producido un error, " + response.message);
             }

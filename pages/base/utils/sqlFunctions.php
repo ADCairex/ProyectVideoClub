@@ -30,7 +30,6 @@
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($idBill, $idUser, $arrayLines->totalPrice));
 
-        $maxIdLineSale = count($arrayLines->lines);
         $idLineSale = 1;
 
         foreach ($arrayLines->lines as &$i) {
