@@ -5,7 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Shop Products</title>
-        <?php include 'loadLibreries.html' ?>
+        <?php 
+            include 'loadLibreries.html';
+            include '../base/utils/join_session.php';
+        ?>
         <style>
             #divCookieCar {
                 position: absolute;
@@ -15,6 +18,7 @@
         </style>
     </head>
     <body>
+        <?php include '../base/header.php' ?>
         <div class="filterCategory">
             <ul id="categoryContainer">
 
