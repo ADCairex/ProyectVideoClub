@@ -1,8 +1,8 @@
 <?php
     try {
-        $dbServer = new PDO('mysql:host=localhost;dbname=ProjectVideo;charset=UTF8', 'root', '');
+        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub;charset=UTF8', 'root', '');
     } catch (PDOException $e) {
-        echo "!Error!: " . $e->getMessage();
+        var_dump("!Error!: " . $e->getMessage());
     }
 
     //Create line in a bill
@@ -107,49 +107,26 @@
         $sql->execute(array($idUser, $idProduct));
     }
 
+    function checkUserExist($username) {
+        global $dbServer;
+        $sql = "SELECT username FROM User WHERE User.username = '?'";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute(array($username));
+
+        if ($prepare == 'NULL') {
+            return False;
+        } else {
+            return True;
+        }
+    }
+
     //Add new user to the DataBase
     function addNewUser($username, $pass, $name, $surnames, $email) {
         global $dbServer;
         $sql = "INSERT INTO User (idUser, username, pass, name, surnames, email) VALUES (NULL, ?, ?, ?, ?, ?)";
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($username, $pass, $name, $surnames, $email));
-    }
-
-    function checkLogin($username, $pass) {
-        try {
-            $bd = getDBConexion();
-    
-            if(!is_null($bd)) {
-                $sqlPrepared = $bd->prepare("SELECT * from User WHERE username = :username AND pass = :pass " );
-                $params = array(    
-                    ':username' => $username,
-                    ':pass' => $pass
-                );
-                $sqlPrepared->execute($params);
-                $array=$sqlPrepared->fetchAll();
-                if (count($array)>0){
-                    session_start();
-                    $_SESSION["username"] = $username;
-                    // $inicio=date('h i s');
-                    // $_SESSION["inicio"] = $inicio;
-                    // echo  $_SESSION["inicio"];
-    
-                    // $fin=date('h i s');
-                    // $_SESSION["fin"] = $fin;
-                    // echo  $_SESSION["fin"];
-    
-                    // $dif=$fin - $inicio;
-                    // echo $dif;
-                }
-                
-                return $sqlPrepared->rowCount() > 0 ? true : false;
-             } else
-                return $bd;
-    
-        } catch (PDOException $e) {
-           return null;
-        }
-    }
+    }    
 
     function updateStockProduct($idProduct, $newStock) {
         global $dbServer;
@@ -169,14 +146,22 @@
     }
 
     //Get the user data from the DataBase
-    function getUserData($idUser) {
+    function getUserData($idUser='', $username='') {
         global $dbServer;
-        $sql = "SELECT * FROM User WHERE idUser = ?";
+        $sql = "SELECT * FROM User WHERE idUser = ? OR username = ?";
         $prepare = $dbServer->prepare($sql);
-        $result = $prepare->execute(array($idUser));
+        $result = $prepare->execute(array($idUser, $username));
 
-        return $prepare->fetchAll()[0];
+        $info = $prepare->fetchAll();
+        
+        if (empty($info)) {
+            return 'No exist';
+        } else {
+            return $info[0];
+        }     
     }
+
+
 
     //Get an array of all the product from the DataBase
     function getAllProducts() {

@@ -6,12 +6,25 @@
 try {
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-		$resp = checkLogin($_POST['username'],$_POST['pass']);
+		$user = $_POST['username'];
+		$pass = $_POST['pass'];
 
-		if(is_null($resp))
-			echo getResponse("KO","Error interno de base de datos");
-		else
-			echo $resp ? getResponse("OK","Login correcto!") : getResponse("KO_LOGIN","Login incorrecto!");
+		if (checkUserExist($user)) {
+			$userInfo = getUserData('', $user);
+			if ($userInfo == 'No exist') {
+				echo getResponse('KO', 'Error al iniciar sesion');
+			} else {
+				if ($pass == $userInfo['pass']) {
+					
+					session_start();
+					$_SESSION['username'] = $userInfo['idUser'];
+					echo getResponse('OK', 'Inicio de sesion correcto');
+				} else {
+					echo getResponse('KO', 'Error al iniciar sesion');
+				}
+			}
+			
+		} 
 
 	} else {
 		echo getResponse("KO","Tipo de petición incorrecta");

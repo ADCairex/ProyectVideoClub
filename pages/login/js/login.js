@@ -2,22 +2,19 @@ function comprobarDatos() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-
+            console.log(this.responseText);
             let response = JSON.parse(this.responseText);
 
 
             if (response.status === "OK") {
-                document.getElementById("ok").style.display = "block";
+                alert('correcto');
 
                 //redirigir a home		
                 window.location.href = "../shopping/shopping.php";
-            } else if (response.status === "KO_LOGIN") {
-                console.log(" " + response.status + " ");
-                document.getElementById("ko").style.display = "block";
-
             } else {
-                alert("Se ha producido un error, si el problema persiste contacta con el administrador")
-            }
+                alert('incorrecto');
+
+            } 
         }
     }
 

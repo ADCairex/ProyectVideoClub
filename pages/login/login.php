@@ -21,7 +21,7 @@
                     <label for="addName"></label>
                     <input type="text" name="addName" id="addName" placeholder="Name:  Angel" required>
                     <label for="addUsername"></label>
-                    <input type="text" name="addSurnames" placeholder="Surnames: Martínez Guradiola" required>
+                    <input type="text" name="addSurnames" id="addSurnames" placeholder="Surnames: Martínez Guradiola" required>
                     <label for="addEmail"></label>
                     <input type="text" name="addEmail" id="addEmail" placeholder="Email: angel@guardiola.com" required>
                     <label for="addPass"></label>
