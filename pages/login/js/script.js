@@ -11,24 +11,24 @@ function showUserStart() {
 
 }
 
-function atrasRegisUser() {
+function backkRegisterUser() {
     document.getElementById("newClient").style.display = "none";
     document.getElementById("botton").style.display = "";
     document.getElementById("botton2").style.display = "";
 
 }
-function atrasUser() {
-    document.getElementById("startClient").style.display = "none";
-    document.getElementById("botton").style.display = "";
-    document.getElementById("botton2").style.display = "";
+// function backUser() {
+//     document.getElementById("startClient").style.display = "none";
+//     document.getElementById("botton").style.display = "";
+//     document.getElementById("botton2").style.display = "";
 
-}
-function botonModificar() {
-    document.getElementById("actualizarNormal").style.display = "none";
-    document.getElementById("actualizar").style.display = "block";
-}
-function actualizarDatos() {
+// }
+// function botonModificar() {
+//     document.getElementById("actualizarNormal").style.display = "none";
+//     document.getElementById("actualizar").style.display = "block";
+// }
+// function actualizarDatos() {
 
-}
+// }
 
 

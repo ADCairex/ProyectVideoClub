@@ -21,10 +21,10 @@ function createDivProduct(product, divContainer) {
         // div += '<div>';
         // div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
         // div += '</div>';
-        div += '<div>';
+        div += '<div class="quantity">';
         div += '<h4>Cantidad: <input type="text" id="quantity' + product.idProduct + '"></h4>'; //Quantity of products you buy
         div += '</div>';
-        div += '<div>';
+        div += '<div class="shopCar">';
         div += '<button onclick="addToShopCar(' + product.idProduct + ')">Agregar al carrito</button>'; //Change for an icon of a buy cest
         div += '</div>';
         div += '<div>';
@@ -51,10 +51,10 @@ function createDivProduct(product, divContainer) {
         // div += '<div>';
         // div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
         // div += '</div>';
-        div += '<div>';
+        div += '<div class="quantity">';
         div += '<h4>Cantidad: <input type="text" id="quantity' + product.idProduct + '"></h4>'; //Quantity of products you buy
         div += '</div>';
-        div += '<div>';
+        div += '<div class="shopCar">';
         div += '<button onclick="addToShopCar(' + product.idProduct + ')">Agregar al carrito</button>'; //Change for an icon of a buy cest
         div += '</div>';
         div += '<div>';

@@ -3,13 +3,15 @@
     include '../../base/utils/utils.php';
 
     try {
+        //Request a idProduct parameter in POST
         $idProduct = $_POST['idProduct'];
+        //Request a quantity parameter in POST
         $quantity = intval($_POST['quantity']);
-
+        //Call Array with the parameters with idProduct
         $productData = getProductData($idProduct);
-
+        //Call the author with getUserData
         $author = getUserData($productData['idAuthor']);
-
+        
         if (!isset($_COOKIE['shopCar'])) {
             $totalPrice = $quantity * $productData['price'];
             $shopCarArray = [

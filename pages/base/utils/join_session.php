@@ -2,7 +2,7 @@
 	session_start(); //unirse a la sesión
 	$host = $_SERVER['HTTP_HOST'];
 	$ruta = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-	if (str_contains($ruta, 'pages/shopping')) {
+	if (strpos($ruta, 'pages/shopping')) {
 		$ruta = str_replace('/pages/shopping', '', $ruta);
 	}
 	$login = 'pages/login/login.php';

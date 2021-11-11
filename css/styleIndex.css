@@ -261,11 +261,27 @@ border-radius: 1rem;
 
 /* LOGIN FORM */
 
+#formsDiv {
+    text-align: center;
+}
+#formsDiv #newClient, #formsDiv #startClient {
+    display: flex !important; 
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#formsDiv #newClient div, #formsDiv #startClient div{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+}
 #formsDiv form{
     display: flex;
     flex-direction: column;
     padding: 2rem 1rem;
     background-color: #fff;
+    -webkit-box-shadow: 0px 0px 7px 0px #000000; 
+box-shadow: 0px 0px 7px 0px #000000;
+border-radius: 0.7rem;
 }
 #formsDiv form input{
    height: 2rem;
@@ -376,10 +392,14 @@ padding: 0 .5rem;
 .metaVideoBoxDescription{
     width: 100%;
 }
+.metaVideoBoxDescription{
+
+}
 
 /* SECTION */
 .features{
     margin: auto;
+    width: 90%;
 }
 /* RESPONSIVE SECTION*/
 

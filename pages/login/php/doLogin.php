@@ -1,5 +1,7 @@
 <?php
-require_once "../../base/utils/connection.php";
+    include '../../base/utils/sqlFunctions.php';
+    include '../../base/utils/utils.php';
+// require_once "../../base/utils/connection.php";
 
 try {
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {

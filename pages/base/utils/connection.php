@@ -43,6 +43,9 @@ function getDBConexion() {
         return null;
     }
 }
+
+
+
 function checkLogin($username, $pass) {
     try {
     	$bd = getDBConexion();
@@ -57,8 +60,17 @@ function checkLogin($username, $pass) {
             $array=$sqlPrepared->fetchAll();
             if (count($array)>0){
                 session_start();
-                $_SESSION["username"]= $username;
-                $_SESSION["pass"]= $pass;
+                $_SESSION["username"] = $username;
+                // $inicio=date('h i s');
+                // $_SESSION["inicio"] = $inicio;
+                // echo  $_SESSION["inicio"];
+
+                // $fin=date('h i s');
+                // $_SESSION["fin"] = $fin;
+                // echo  $_SESSION["fin"];
+
+                // $dif=$fin - $inicio;
+                // echo $dif;
             }
             
             return $sqlPrepared->rowCount() > 0 ? true : false;
@@ -94,8 +106,7 @@ function addUser($data) {
                     ':pass' => $data["pass"]
                 );
                 session_start();
-                 $username = $_SESSION["username"];
-                 $name = $_SESSION["name"];
+                $username = $_SESSION["username"];
                 $sqlPrepared->execute($params);
 
                 return true;

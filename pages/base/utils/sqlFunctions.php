@@ -1,6 +1,6 @@
 <?php
     try {
-        $dbServer = new PDO('mysql:host=localhost;dbname=ProjectVideo;charset=UTF8', 'root', 'root');
+        $dbServer = new PDO('mysql:host=localhost;dbname=ProjectVideo;charset=UTF8', 'root', '');
     } catch (PDOException $e) {
         echo "!Error!: " . $e->getMessage();
     }
@@ -26,14 +26,18 @@
         } else {
             $idBill += 1;
         }
-        $sql = "INSERT INTO Bill (idBill, idUser, total) VALUES (?, ?, 0)";
+        $sql = "INSERT INTO Bill (idBill, idUser, total) VALUES (?, ?, ?)";
         $sql = $dbServer->prepare($sql);
-        $sql->execute(array($idBill, $idUser));
+        $sql->execute(array($idBill, $idUser, $arrayLines->totalPrice));
 
-        $maxIdLineSale = count($arrayLines);
+        $maxIdLineSale = count($arrayLines->lines);
         $idLineSale = 1;
 
-        foreach ($arrayLines as &$i) {
+        foreach ($arrayLines->lines as &$i) {
+            $newStock = getProductData($i->idProduct);
+            $newStock = intval($newStock['stock']) - $i->quantity;
+    
+            updateStockProduct($i->idProduct, $newStock);
             addLineSale($idLineSale, $idBill, $i->idProduct, $i->price, $i->quantity);
             $idLineSale += 1;
         }
@@ -109,44 +113,59 @@
         $sql = "INSERT INTO User (idUser, username, pass, name, surnames, email) VALUES (NULL, ?, ?, ?, ?, ?)";
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($username, $pass, $name, $surnames, $email));
+    }
 
+    function checkLogin($username, $pass) {
+        try {
+            $bd = getDBConexion();
+    
+            if(!is_null($bd)) {
+                $sqlPrepared = $bd->prepare("SELECT * from User WHERE username = :username AND pass = :pass " );
+                $params = array(    
+                    ':username' => $username,
+                    ':pass' => $pass
+                );
+                $sqlPrepared->execute($params);
+                $array=$sqlPrepared->fetchAll();
+                if (count($array)>0){
+                    session_start();
+                    $_SESSION["username"] = $username;
+                    // $inicio=date('h i s');
+                    // $_SESSION["inicio"] = $inicio;
+                    // echo  $_SESSION["inicio"];
+    
+                    // $fin=date('h i s');
+                    // $_SESSION["fin"] = $fin;
+                    // echo  $_SESSION["fin"];
+    
+                    // $dif=$fin - $inicio;
+                    // echo $dif;
+                }
+                
+                return $sqlPrepared->rowCount() > 0 ? true : false;
+             } else
+                return $bd;
+    
+        } catch (PDOException $e) {
+           return null;
+        }
+    }
 
-        // try {
-        //     $bd = getDBConexion();
-    
-            
-        //     $email = $data["email"]; 
-        //     $sql = $bd->prepare("SELECT * FROM usuarios where email = :email");
-        //     $sql->bindParam(':email', $email);
-        //     $sql->execute();
-        //     $rows= $sql->rowCount();
-    
-        //     if(!is_null($bd)) { 
-        //         if ($rows == 0){
-        //             $sqlPrepared = $bd->prepare("
-        //                 INSERT INTO usuarios (nombre,email,pass)
-        //                 VALUES (:nombre,:email,:pass)
-        //             ");
-        //             $params = array(
-        //                 ':nombre' => $data["nombre"],
-        //                 ':email' => $data["email"],
-        //                 ':pass' => $data["pass"]
-        //             );
-        //             session_start();
-        //             $_SESSION["email"]= $email;
-        //             $_SESSION["nombre"]= $nombre;
-        //             $sqlPrepared->execute($params);
-    
-        //             return true;
-        //         } else {
-        //             return false;
-        //         }
-        //     }
-        // } catch (PDOException $e) {
-        //     echo $e->getMessage();
-        //    return null;
-        // }
-        
+    function updateStockProduct($idProduct, $newStock) {
+        global $dbServer;
+        $sql = "UPDATE Product SET stock = ? WHERE Product.idProduct = ?";
+        $sql = $dbServer->prepare($sql);
+        $sql->execute(array($newStock, $idProduct));
+    }
+
+    //Get an array of all categories from de DataBase
+    function getAllCategories() {
+        global $dbServer;
+        $sql = "SELECT * FROM Category";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute();
+
+        return $prepare->fetchAll();
     }
 
     //Get the user data from the DataBase
@@ -165,6 +184,16 @@
         $sql = "SELECT * FROM Product";
         $prepare = $dbServer->prepare($sql);
         $result = $prepare->execute();
+
+        return $prepare->fetchAll();
+    }
+
+    //Gen an array of all the product by her category from the DataBase
+    function getProductByCategory($idCategory) {
+        global $dbServer;
+        $sql = "SELECT Product.idProduct, Product.name, Product.idAuthor, Product.price, Product.stock, Product.routProduct FROM Product INNER JOIN ProductCategories on Product.idProduct = ProductCategories.idProduct INNER JOIN Category ON Category.idCategory = ProductCategories.idCategory WHERE Category.idCategory = ?";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute(array($idCategory));
 
         return $prepare->fetchAll();
     }
