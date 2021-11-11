@@ -109,11 +109,11 @@
 
     function checkUserExist($username) {
         global $dbServer;
-        $sql = "SELECT username FROM User WHERE User.username = '?'";
+        $sql = "SELECT username FROM User WHERE username = ?";
         $prepare = $dbServer->prepare($sql);
         $result = $prepare->execute(array($username));
 
-        if ($prepare == 'NULL') {
+        if ($prepare->fetchAll() == []) {
             return False;
         } else {
             return True;
@@ -127,7 +127,7 @@
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($username, $pass, $name, $surnames, $email));
     }    
-
+    
     function updateStockProduct($idProduct, $newStock) {
         global $dbServer;
         $sql = "UPDATE Product SET stock = ? WHERE Product.idProduct = ?";

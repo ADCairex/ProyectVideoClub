@@ -2,7 +2,6 @@
 
 	include '../../base/utils/sqlFunctions.php';
 	include '../../base/utils/utils.php';
-	// require_once "../../base/utils/connection.php";
 
 	try {
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,9 +12,13 @@
 			$email = $_POST["email"];
 			$pass = $_POST["pass"];
 
-			if (checkUserExist($username)) {
-				addNewUser($username, $pass, $name, $surnames, $email);
+			if (!checkUserExist($username)) {
 				echo getResponse('OK', 'Agregado correctamente');
+				addNewUser($username, $pass, $name, $surnames, $email);
+				$userInfo = getUserData('', $username);
+				session_start();
+				$_SESSION['username'] = $userInfo['idUser'];
+				
 			} else {
 				echo getResponse('KO', 'Error al agregar el usuario');
 			}

@@ -1,19 +1,14 @@
 function addUser() {
-    debugger;
+    
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
             let response = JSON.parse(this.responseText);
             if (response.status == "OK") {
-
-                document.getElementById("addok").style.display = "block";
-
-                alert("Usuario añadido correctamente");
-                window.location.href = "../shopping/shopping.php";
+                alert("Usuario añadido correctamente, ya puede iniciar sesion");
             } else if (response.status == "KO_LOGIN") {
                 alert("Se ha producido un error al añadir el usuario");
-                document.getElementById("addko").style.display = "block";
             }
             else {
                 alert("Se ha producido un error, inténtalo de nuevo más tarde");

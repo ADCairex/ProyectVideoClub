@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <h1>Pagina de inicio</h1>
     <a href="pages/shopping/shopping.php">Comprar productos</a>
 </body>
 
