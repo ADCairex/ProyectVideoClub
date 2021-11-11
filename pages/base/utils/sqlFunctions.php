@@ -2,7 +2,7 @@
     try {
         $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub;charset=UTF8', 'root', '');
     } catch (PDOException $e) {
-        echo "!Error!: " . $e->getMessage();
+        var_dump("!Error!: " . $e->getMessage());
     }
 
     //Create line in a bill
@@ -30,6 +30,10 @@
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($idBill, $idUser, $arrayLines->totalPrice));
 
+<<<<<<< HEAD
+=======
+        $maxIdLineSale = count($arrayLines->lines);
+>>>>>>> developSergio2
         $idLineSale = 1;
 
         foreach ($arrayLines->lines as &$i) {
@@ -37,7 +41,11 @@
             $newStock = intval($newStock['stock']) - $i->quantity;
     
             updateStockProduct($i->idProduct, $newStock);
+<<<<<<< HEAD
             addLineSale($idLineSale, $idBill, $i->idProduct, $i->linePrice, $i->quantity);
+=======
+            addLineSale($idLineSale, $idBill, $i->idProduct, $i->price, $i->quantity);
+>>>>>>> developSergio2
             $idLineSale += 1;
         }
     }
@@ -106,12 +114,42 @@
         $sql->execute(array($idUser, $idProduct));
     }
 
+    function checkUserExist($username) {
+        global $dbServer;
+        $sql = "SELECT username FROM User WHERE username = ?";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute(array($username));
+
+        if ($prepare->fetchAll() == []) {
+            return False;
+        } else {
+            return True;
+        }
+    }
+
     //Add new user to the DataBase
     function addNewUser($username, $pass, $name, $surnames, $email) {
         global $dbServer;
         $sql = "INSERT INTO User (idUser, username, pass, name, surnames, email) VALUES (NULL, ?, ?, ?, ?, ?)";
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($username, $pass, $name, $surnames, $email));
+    }    
+    
+    function updateStockProduct($idProduct, $newStock) {
+        global $dbServer;
+        $sql = "UPDATE Product SET stock = ? WHERE Product.idProduct = ?";
+        $sql = $dbServer->prepare($sql);
+        $sql->execute(array($newStock, $idProduct));
+    }
+
+    //Get an array of all categories from de DataBase
+    function getAllCategories() {
+        global $dbServer;
+        $sql = "SELECT * FROM Category";
+        $prepare = $dbServer->prepare($sql);
+        $result = $prepare->execute();
+
+        return $prepare->fetchAll();
     }
 
     function updateStockProduct($idProduct, $newStock) {
@@ -132,14 +170,22 @@
     }
 
     //Get the user data from the DataBase
-    function getUserData($idUser) {
+    function getUserData($idUser='', $username='') {
         global $dbServer;
-        $sql = "SELECT * FROM User WHERE idUser = ?";
+        $sql = "SELECT * FROM User WHERE idUser = ? OR username = ?";
         $prepare = $dbServer->prepare($sql);
-        $result = $prepare->execute(array($idUser));
+        $result = $prepare->execute(array($idUser, $username));
 
-        return $prepare->fetchAll()[0];
+        $info = $prepare->fetchAll();
+        
+        if (empty($info)) {
+            return 'No exist';
+        } else {
+            return $info[0];
+        }     
     }
+
+
 
     //Get an array of all the product from the DataBase
     function getAllProducts() {

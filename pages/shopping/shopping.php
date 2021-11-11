@@ -28,5 +28,10 @@
 
             </ul>
         </div>
-    </body>
+
+
+
+    <?php include '../base/footer.html' ?>
+</body>
+
 </html>

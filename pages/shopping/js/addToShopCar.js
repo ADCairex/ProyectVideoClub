@@ -12,14 +12,14 @@ function addToShopCar(idProduct) {
             } else {
                 alert("Se ha producido un error, " + response.message);
             }
-		}
-	}
+        }
+    }
 
-    let quantity = document.getElementById('quantity'+idProduct).value;
-    let product="idProduct="+idProduct+"&quantity="+quantity;
+    let quantity = document.getElementById('quantity' + idProduct).value;
+    let product = "idProduct=" + idProduct + "&quantity=" + quantity;
 
-	xhttp.open("POST", "php/shoppingCar.php", true);	
-	xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xhttp.send(product);
-    	
+    xhttp.open("POST", "php/shoppingCar.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(product);
+
 }

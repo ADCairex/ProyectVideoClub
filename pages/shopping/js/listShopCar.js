@@ -1,4 +1,5 @@
-function createDivProductCar(product , divContainer) {
+
+function createDivProductCar(product, divContainer) {
     if (product.routProduct.includes('.mp3')) {
         var div = '<li class="metaMusicBoxDescription">';
                 div += '<div>';
@@ -33,8 +34,11 @@ function createDivProductCar(product , divContainer) {
         var div = 'Error en la ruta de la base de datos';
     }
 
+
     divContainer.innerHTML += div;
+
 }
+
 
 function loadProductsInDivCar(productsJSON, divContainer) {
     if (productsJSON.lines.length <= 0) {
@@ -56,12 +60,14 @@ function loadProductsShopCar() {
     divContainer.innerHTML = '';
 
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let response = JSON.parse(this.responseText);
 
             if (response.status == 'OK') {
+
                 loadProductsInDivCar(response.data, divContainer);
+
             } else {
                 alert('Se ha producido un error prueba mas tarde');
             }

@@ -1,4 +1,4 @@
-function createDivProduct(product , divContainer) {
+function createDivProduct(product, divContainer) {
     if (product.routProduct.includes('.mp3')) {
         var div = '<div class="containerBox">';
                 div += '<div class="productBoxMusic">';
@@ -110,12 +110,11 @@ function loadProductsCat(idCategory) {
 }
 
 function loadProducts() {
-    
     let divContainer = document.getElementById('shopContainer');
     divContainer.innerHTML = '';
 
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
             let response = JSON.parse(this.responseText);
@@ -133,5 +132,5 @@ function loadProducts() {
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     
-    loadProducts();
+    loadProducts();velopSergio2
 });
