@@ -11,5 +11,5 @@
 
     //Si no tengo la clave de usuario, significa que no hay iniciado sesión, por lo tanto redirigo al login
 	if(!isset($_SESSION['username'])){
-		header('Location: '.$logginUrl);
+		header('Location: '.$loginUrl);
 	}

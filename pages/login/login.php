@@ -12,7 +12,7 @@
 <body>
     <section class="features">
         <div id="formsDiv">
-            <input type="submit" value="Registro Nuevo" id="botton" onclick="showUserRegister()"><br>
+            
             <div id="newClient" style="display: none;">
                 <form onsubmit="return addUser();" method="POST" id="formulario">
                     <h2>Sign up</h2>
@@ -35,14 +35,8 @@
                     </div>
                     <p>Do you already have an account?<span onclick="backRegisterUser()">Login</span></p>
                 </form>
-                <div>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/j22_O3pk3x4"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
             </div>
-            <input type="submit" value="Inicio sesion" id="botton2" onclick="showUserStart()"><br>
+            
             <div id="startClient" style="display: none;">
                 <form onsubmit="return comprobarDatos();" method="POST" id="formulario">
                     <h2>Sign In</h2>
@@ -59,19 +53,12 @@
                     </div>
                     <p>You do not have an account?<span onclick="backRegisterUser()">Sign up</span></p>
                 </form>
-                <div>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/j22_O3pk3x4"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-
-                </div>
             </div>
 
         </div>
     </section>
-    <?php require_once "../footer.html"; ?>
-    <script src="js/script.js"></script>
+    <?php include "../base/footer.html" ?>
+    
 
 </body>
 

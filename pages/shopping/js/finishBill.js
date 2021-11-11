@@ -7,7 +7,8 @@ function finishBill() {
 
             if (response.status == 'OK') {
                 alert('Factura generada con exito');
-                loadProductsShopCarCookies();
+                loadProductsShopCar();
+                loadProducts();
             } else {
                 alert('Ha habido un error al generar la factura');
             }
