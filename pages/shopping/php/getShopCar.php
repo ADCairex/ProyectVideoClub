@@ -7,12 +7,16 @@
 
     try {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $products = json_decode($_COOKIE['shopCar']);
-            $x = getResponse('OK', 'Contendio obtenido correctamente', $products);
-            if (is_null($products)) {
-                echo getResponse('KO', 'Error interno de base de datos');
+            if (isset($_COOKIE['shopCar'])) {
+                $products = json_decode($_COOKIE['shopCar']);
+                $x = getResponse('OK', 'Contendio obtenido correctamente', $products);
+                if (is_null($products)) {
+                    echo getResponse('KO', 'Error interno de base de datos');
+                } else {
+                    echo getResponse('OK', 'Contendio obtenido correctamente', $products);
+                }
             } else {
-                echo getResponse('OK', 'Contendio obtenido correctamente', $products);
+                echo getResponse('OK', 'Sin cookie que cargar');
             }
         } else {
             echo getResponse('KO', 'Error interno');

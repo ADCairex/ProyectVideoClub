@@ -30,10 +30,7 @@
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($idBill, $idUser, $arrayLines->totalPrice));
 
-<<<<<<< HEAD
-=======
         $maxIdLineSale = count($arrayLines->lines);
->>>>>>> developSergio2
         $idLineSale = 1;
 
         foreach ($arrayLines->lines as &$i) {
@@ -41,11 +38,7 @@
             $newStock = intval($newStock['stock']) - $i->quantity;
     
             updateStockProduct($i->idProduct, $newStock);
-<<<<<<< HEAD
             addLineSale($idLineSale, $idBill, $i->idProduct, $i->linePrice, $i->quantity);
-=======
-            addLineSale($idLineSale, $idBill, $i->idProduct, $i->price, $i->quantity);
->>>>>>> developSergio2
             $idLineSale += 1;
         }
     }
@@ -133,24 +126,7 @@
         $sql = "INSERT INTO User (idUser, username, pass, name, surnames, email) VALUES (NULL, ?, ?, ?, ?, ?)";
         $sql = $dbServer->prepare($sql);
         $sql->execute(array($username, $pass, $name, $surnames, $email));
-    }    
-    
-    function updateStockProduct($idProduct, $newStock) {
-        global $dbServer;
-        $sql = "UPDATE Product SET stock = ? WHERE Product.idProduct = ?";
-        $sql = $dbServer->prepare($sql);
-        $sql->execute(array($newStock, $idProduct));
-    }
-
-    //Get an array of all categories from de DataBase
-    function getAllCategories() {
-        global $dbServer;
-        $sql = "SELECT * FROM Category";
-        $prepare = $dbServer->prepare($sql);
-        $result = $prepare->execute();
-
-        return $prepare->fetchAll();
-    }
+    } 
 
     function updateStockProduct($idProduct, $newStock) {
         global $dbServer;
