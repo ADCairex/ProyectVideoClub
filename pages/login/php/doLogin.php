@@ -24,7 +24,9 @@ try {
 				}
 			}
 			
-		} 
+		} else {
+			echo getResponse('KO', 'Usuario no existe');
+		}
 
 	} else {
 		echo getResponse("KO","Tipo de petición incorrecta");
