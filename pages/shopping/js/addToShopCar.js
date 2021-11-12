@@ -1,7 +1,5 @@
 function addToShopCar(idProduct) {
-
-
-    
+        
     var xhttp = new XMLHttpRequest();				
 	xhttp.onreadystatechange = async function() {
 		if (this.readyState == 4 && this.status == 200) {            

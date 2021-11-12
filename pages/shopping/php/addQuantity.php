@@ -14,6 +14,7 @@
         foreach ($shopCarArray->lines as $i) {
             if ($i->idProduct == $idProduct) {
                 $i->quantity += 1;
+                $i->linePrice += $i->price;
                 setcookie('shopCar', json_encode($shopCarArray, true), time() + 3600);
                 echo getResponse('OK', 'Sumado correctamente');
                 break;
