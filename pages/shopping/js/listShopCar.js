@@ -48,6 +48,11 @@ function loadProductsInDivCar(productsJSON, divContainer) {
             let product = productsJSON.lines[i];
             createDivProductCar(product, divContainer);
         }
+
+        if (!document.getElementById('divCookieCar').contains(document.getElementById('deleteBill'))) {
+            document.getElementById('divCookieCar').innerHTML += '<button id="deleteBill" onclick="deleteBill()">Eliminar factura</button>';
+        }
+
         if (!document.getElementById('divCookieCar').contains(document.getElementById('detailBill'))) {
             document.getElementById('divCookieCar').innerHTML += '<a href="bill.php"><button id="detailBill">Factura detallada</button></a>';
         }

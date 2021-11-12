@@ -8,6 +8,8 @@ function finishBill() {
             if (response.status == 'OK') {
                 alert('Factura generada con exito');
                 document.getElementById('billBt').remove();
+                document.getElementById('detailBill').remove();
+                document.getElementById('deleteBill').remove();                
                 loadProductsShopCar();
                 loadProducts();
             } else {
