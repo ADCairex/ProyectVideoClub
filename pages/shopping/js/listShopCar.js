@@ -9,7 +9,7 @@ function createDivProductCar(product, divContainer) {
         div += '<h3>Precio: ' + product.price + '</h3>'
         div += '</div>';
         div += '<div class="quantity">';
-        div += '<i class="fas fa-minus-circle"></i><h4>Cantidad: ' + product.quantity + '</h4><i class="fas fa-plus-circle"></i>'; //Number visualizacions bought
+        div += '<i class="fas fa-minus-circle" style="color: red"></i><h4>Cantidad: ' + product.quantity + '</h4><i class="fas fa-plus-circle" style="color: green"></i>'; //Number visualizacions bought
         div += '</div>';
         div += '<div>';
         div += '<h4>Total: ' + product.linePrice + '</h4>'; //Number visualizacions bought
@@ -24,7 +24,7 @@ function createDivProductCar(product, divContainer) {
         div += '<h3>Precio: ' + product.price + '</h3>'
         div += '</div>';
         div += '<div class="quantity">';
-        div += '<i class="fas fa-minus-circle"></i><h4>Cantidad: ' + product.quantity + '</h4><i class="fas fa-plus-circle"></i>'; //Number visualizacions bought
+        div += '<i class="fas fa-minus-circle" style="color: red"></i><h4>Cantidad: ' + product.quantity + '</h4><i class="fas fa-plus-circle" style="color: green"></i>'; //Number visualizacions bought
         div += '</div>';
         div += '<div>';
         div += '<h4>Total: ' + product.linePrice + '</h4>'; //Number visualizacions bought
