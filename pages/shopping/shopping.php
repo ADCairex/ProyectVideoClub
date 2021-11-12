@@ -9,29 +9,29 @@
             include 'loadLibreries.html';
             include '../base/utils/join_session.php';
         ?>
-        <style>
-            #divCookieCar {
-                position: absolute;
-                top: 100px;
-                left: 1500px;
-            }
-        </style>
     </head>
     <body>
         <?php include '../base/header.php' ?>
+
+        <div class="mainPrincipal">
         <div class="filterCategory">
             <ul id="categoryContainer">
 
             </ul>
         </div>
-        <div id="shopContainer">
-            
-        </div>
-        <div id="divCookieCar">
-            <ul id="ulCookieCar">
 
-            </ul>
+        <div class="mainBox">
+            <div id="shopContainer">
+            </div>
+            <div id="divCookieCar">
+                <ul id="ulCookieCar">
+
+                </ul>
+            </div>
         </div>
+        </div>
+
+
 
 
 

@@ -1,7 +1,7 @@
 <!-- NUESTRO ESTILO, con mucho FLOW -->
-
+<!-- 
 <link rel="stylesheet" href="../css/styleIndex.css">
-<link rel="stylesheet" href="../../css/styleIndex.css">
+<link rel="stylesheet" href="../../css/styleIndex.css"> -->
 
 <!-- <script src="https://kit.fontawesome.com/cb178e7458.js" crossorigin="anonymous"></script> -->
 

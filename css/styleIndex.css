@@ -62,31 +62,26 @@ header div{
     width: 100px;
 }
 
-.filterCategory{
-    position: fixed;
-}
-.container-main-bill #cookieCar{
-    margin-top: 6rem;
-    display: flex;
-    flex-direction: column;
-}
-.container-main-bill #cookieCar .containerBox{
-width: 100% !important;
-margin-bottom: 0;
-}
-.container-main-bill #cookieCar .containerBox h3{
-    margin: 0.2rem 0;
-    }
-.container-main-bill #cookieCar .containerBox .metaVideoBoxDescription{
-    display: flex;
-    flex-direction: revert;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    }
 
-    .container-main-bill
+#divCookieCar ul{
+list-style: none;
+}
 
+
+    #categoryContainer{
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+    }
+    #categoryContainer li{
+        margin: 2rem 0;
+    }
+#billBt{
+    display: flex;
+    margin: auto;
+    padding: 1rem;
+    cursor: pointer;
+}
 form{
     display: flex;
     flex-direction: column;
@@ -309,6 +304,29 @@ border-radius: 0.7rem;
 
 /* PRODUCT BOX MUSIC & VIDEO */
 
+.mainPrincipal{
+    display: flex;
+    flex-direction: row;
+}
+.filterCategory{
+    width: 100px;
+    position: fixed;
+    padding: 65px 0;
+    background-color: #fff;
+    height: 100%;
+    -webkit-box-shadow: 3px 0px 8px -2px #000000; 
+box-shadow: 3px 0px 8px -2px #000000;
+}
+.filterCategory ul{
+   list-style: no;
+}
+.mainBox{
+    width: calc(100% - 100px);
+        display: flex;
+        flex-direction: column-reverse;
+        margin-left: 100px;
+        margin-top: 100px;
+}
 #shopContainer{
     display: flex;
     flex-wrap: wrap;
@@ -318,8 +336,6 @@ border-radius: 0.7rem;
     padding: 1rem;
 
 }
-
-
 .containerBox{
     width: 25%;
     height: auto;
@@ -329,8 +345,6 @@ border-radius: 0.7rem;
     margin-bottom: 2rem;
 
 }
-
-
 
 .videoBox, .musicBox, .videoBoxDescription, .musicBoxDescription{
     margin: 0 1rem;
@@ -358,15 +372,19 @@ border-radius: 0.7rem;
 
 .videoBoxDescription h3{
     margin: 0 !important;
-    padding-bottom: 1rem;
+    padding: .5rem;
     text-align: center;
-
     border-bottom: 1px solid grey;
+
 }
 .musicBox{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: #fff;
+    padding: 0 1rem;
+    border-top-right-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
 }
 .videoBox video{
     width: 100%;
@@ -392,10 +410,17 @@ padding: 0 .5rem;
 .metaVideoBoxDescription{
     width: 100%;
 }
-.metaVideoBoxDescription{
-
+.container-main-bill .metaVideoBoxDescription, .container-main-bill .metaMusicBoxDescription{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
+
+.mainBox #ulCookieCar{
+    display: flex;
+    flex-direction: row;
+}
 /* SECTION */
 .features{
     margin: auto;

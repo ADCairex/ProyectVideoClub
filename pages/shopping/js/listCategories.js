@@ -1,12 +1,12 @@
 function createDivCategory(category, divContainer) {
     var div = '<li>';
-            div += '<div onclick="loadProductsCat('+category.idCategory+')">';
-                div += '<img src="#">'
-                div += '<p>';
-                    div += category.name;
-                div += '</p>';
-            div += '</div>';
-        div += '</li>';
+    div += '<div onclick="loadProductsCat(' + category.idCategory + ')">';
+    div += '<i class="' + category.description + '" style="font-size:24px;"></i>'
+    div += '<p>';
+    div += category.name;
+    div += '</p>';
+    div += '</div>';
+    div += '</li>';
 
     divContainer.innerHTML += div;
 }
@@ -26,9 +26,9 @@ function loadCategories() {
     divContainer.innerHTML = '';
 
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            
+
             let response = JSON.parse(this.responseText);
 
             if (response.status == 'OK') {
@@ -42,6 +42,6 @@ function loadCategories() {
     xhttp.send();
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function (event) {
     loadCategories();
 });
