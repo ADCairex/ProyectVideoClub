@@ -452,6 +452,10 @@ padding: 0 .5rem;
     text-align: center;
 }
 
+.container-main-bill #ulCookieCar{
+   padding: 0;
+}
+
 
 .videoBoxDescription h3, .metaMusicBoxDescription h3{
     margin: 0 !important;
