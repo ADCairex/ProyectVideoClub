@@ -121,6 +121,7 @@ form{
 a {
     text-decoration: none;
     color: black;
+    margin: auto;
 }
 
 /* SERGIO */
@@ -140,6 +141,8 @@ footer{
     background-color: #fff;
     -webkit-box-shadow: 0px -8px 12px 0px #000000; 
     box-shadow: 0px -8px 12px 0px #bfbfbf;
+    height: 65px;
+    padding: .7rem;
 }
 
 .container_header, .container_footer{
@@ -258,6 +261,9 @@ border-radius: 1rem;
 
 #formsDiv {
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 #formsDiv #newClient, #formsDiv #startClient {
     display: flex !important; 
@@ -280,6 +286,7 @@ border-radius: 0.7rem;
 }
 #formsDiv form input{
    height: 2rem;
+   margin: .5rem 0;
 }
 .loginForm{
     height: 90%;
@@ -352,6 +359,7 @@ box-shadow: 3px 0px 8px -2px #000000;
     height: 50%;
     display: flex;
     justify-content: center;
+    background-color: #fff;
 }
 .videoBoxDescription, .musicBoxDescription{
     display: flex;
@@ -361,6 +369,7 @@ box-shadow: 3px 0px 8px -2px #000000;
     border-end-end-radius: 1.5rem;
     border-end-start-radius: 1.5rem;
     justify-content: space-evenly;
+    text-align: center;
 
 }
 .videoBoxDescription .avatar, .musicBoxDescription .avatar{
@@ -370,13 +379,7 @@ box-shadow: 3px 0px 8px -2px #000000;
     border-radius: 100%;
 }
 
-.videoBoxDescription h3{
-    margin: 0 !important;
-    padding: .5rem;
-    text-align: center;
-    border-bottom: 1px solid grey;
 
-}
 .musicBox{
     display: flex;
     flex-direction: column;
@@ -410,16 +413,46 @@ padding: 0 .5rem;
 .metaVideoBoxDescription{
     width: 100%;
 }
+.metaVideoBoxDescription div, .metaMusicBoxDescription div{
+   padding: .5rem 0;
+}
+.metaVideoBoxDescription div h3, .metaMusicBoxDescription div h3{
+    margin: 0;
+ }
 .container-main-bill .metaVideoBoxDescription, .container-main-bill .metaMusicBoxDescription{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
+.videoBoxDescription h3, .metaMusicBoxDescription h3{
+    margin: 0 !important;
+    text-align: center;
+}
+.metaMusicBoxDescription h3{
+    margin: 0 !important;
+    padding: .5rem;
+    text-align: center;
+
+}
+
 
 .mainBox #ulCookieCar{
     display: flex;
     flex-direction: row;
+    text-align: center;
+}
+
+.mainBox #ulCookieCar .metaVideoBoxDescription{
+    background-color: rgb(245, 214, 214);
+    border: 1px solid grey;
+    width: 25%;
+
+}
+.mainBox #ulCookieCar .metaMusicBoxDescription{
+    background-color: rgb(233, 255, 232);
+    border: 1px solid grey;
+    width: 25%;
 }
 /* SECTION */
 .features{

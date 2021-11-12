@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <?php include '../header.php' ?>
+    <?php include '../base/header.php' ?>
 
 
     <div class="container-main">
@@ -40,7 +40,7 @@
 
 
 
-    <?php include '../footer.html' ?>
+    <?php include '../base/footer.html' ?>
 </body>
 
 </html>
