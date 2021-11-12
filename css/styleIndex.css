@@ -100,9 +100,9 @@ background-color: rgb(202, 202, 202);
     }
 #billBt{
     display: flex;
-    margin: auto;
     padding: 1rem;
     cursor: pointer;
+    margin: 3rem auto;
 }
 form{
     display: flex;
