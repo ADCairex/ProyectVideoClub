@@ -3,31 +3,31 @@ function createDivProductCar(product, divContainer) {
     if (product.routProduct.includes('.mp3')) {
         var div = '<li class="metaMusicBoxDescription">';
         div += '<div>';
-        div += '<h3>Titulo de la cancion: ' + product.name + '</h3>'; //Title of the video
+        div += '<h3>Canción: ' + product.name + '</h3>'; //Title of the video
         div += '</div>';
         div += '<div>';
-        div += '<h3>Precio unitario: ' + product.price + '</h3>'
+        div += '<h3>Precio: ' + product.price + '</h3>'
         div += '</div>';
         div += '<div class="quantity">';
         div += '<i class="fas fa-minus-circle"></i><h4>Cantidad: ' + product.quantity + '</h4><i class="fas fa-plus-circle"></i>'; //Number visualizacions bought
         div += '</div>';
         div += '<div>';
-        div += '<h4>Precio total: ' + product.linePrice + '</h4>'; //Number visualizacions bought
+        div += '<h4>Total: ' + product.linePrice + '</h4>'; //Number visualizacions bought
         div += '</div>';
         div += '</li>';
     } else if (product.routProduct.includes('.mp4')) {
         var div = '<li class="metaVideoBoxDescription">';
         div += '<div>';
-        div += '<h3>Titulo del video: ' + product.name + '</h3>'; //Title of the video
+        div += '<h3>Vídeo: ' + product.name + '</h3>'; //Title of the video
         div += '</div>';
         div += '<div>';
-        div += '<h3>Precio unitario: ' + product.price + '</h3>'
+        div += '<h3>Precio: ' + product.price + '</h3>'
         div += '</div>';
         div += '<div class="quantity">';
         div += '<i class="fas fa-minus-circle"></i><h4>Cantidad: ' + product.quantity + '</h4><i class="fas fa-plus-circle"></i>'; //Number visualizacions bought
         div += '</div>';
         div += '<div>';
-        div += '<h4>Precio total: ' + product.linePrice + '</h4>'; //Number visualizacions bought
+        div += '<h4>Total: ' + product.linePrice + '</h4>'; //Number visualizacions bought
         div += '</div>';
         div += '</li>';
     } else {
