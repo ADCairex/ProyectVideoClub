@@ -49,16 +49,20 @@ function loadProductsInDivCar(productsJSON, divContainer) {
             createDivProductCar(product, divContainer);
         }
 
+        if (!document.getElementById('divCookieCar').contains(document.getElementById('totalBill'))) {
+            document.getElementById('divCookieCar').innerHTML += '<div id="totalBill">Total pedido: '+productsJSON.totalPrice+'</div>';
+        }
+
         if (!document.getElementById('divCookieCar').contains(document.getElementById('deleteBill'))) {
-            document.getElementById('divCookieCar').innerHTML += '<button id="deleteBill" onclick="deleteBill()">Eliminar factura</button>';
+            document.getElementById('divCookieCar').innerHTML += '<button id="deleteBill" onclick="deleteBill()">Vaciar carrito</button>';
         }
 
         if (!document.getElementById('divCookieCar').contains(document.getElementById('detailBill'))) {
-            document.getElementById('divCookieCar').innerHTML += '<a href="bill.php"><button id="detailBill">Factura detallada</button></a>';
+            document.getElementById('divCookieCar').innerHTML += '<a href="bill.php"><button id="detailBill">Finalizar pedido</button></a>';
         }
 
         if (!document.getElementById('divCookieCar').contains(document.getElementById('billBt'))) {
-            document.getElementById('divCookieCar').innerHTML += '<button id="billBt" onclick="finishBill()">Finalizar factura</button>';
+            document.getElementById('divCookieCar').innerHTML += '<button id="billBt" onclick="finishBill()">Finalizar pedido</button>';
         }
     }
 }
