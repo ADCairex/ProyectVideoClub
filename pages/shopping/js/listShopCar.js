@@ -2,34 +2,34 @@
 function createDivProductCar(product, divContainer) {
     if (product.routProduct.includes('.mp3')) {
         var div = '<li class="metaMusicBoxDescription">';
-                div += '<div>';
-                    div += '<h3>Titulo de la cancion: '+product.name+'</h3>'; //Title of the video
-                div += '</div>';
-                div += '<div>';
-                    div += '<h3>Precio unitario: '+product.price+'</h3>'
-                div += '</div>';
-                div += '<div>';
-                    div += '<h4>Cantidad: '+product.quantity+'</h4>'; //Number visualizacions bought
-                div += '</div>';
-                div += '<div>';
-                    div += '<h4>Precio total: '+product.linePrice+'</h4>'; //Number visualizacions bought
-                div += '</div>';
-            div += '</li>';
+        div += '<div>';
+        div += '<h3>Titulo de la cancion: ' + product.name + '</h3>'; //Title of the video
+        div += '</div>';
+        div += '<div>';
+        div += '<h3>Precio unitario: ' + product.price + '</h3>'
+        div += '</div>';
+        div += '<div class="quantity">';
+        div += '<i class="fas fa-minus-circle"></i><h4>Cantidad: ' + product.quantity + '</h4><i class="fas fa-plus-circle"></i>'; //Number visualizacions bought
+        div += '</div>';
+        div += '<div>';
+        div += '<h4>Precio total: ' + product.linePrice + '</h4>'; //Number visualizacions bought
+        div += '</div>';
+        div += '</li>';
     } else if (product.routProduct.includes('.mp4')) {
         var div = '<li class="metaVideoBoxDescription">';
-                div += '<div>';
-                    div += '<h3>Titulo del video: '+product.name+'</h3>'; //Title of the video
-                div += '</div>';
-                div += '<div>';
-                    div += '<h3>Precio unitario: '+product.price+'</h3>'
-                div += '</div>';
-                div += '<div>';
-                    div += '<h4>Cantidad: '+product.quantity+'</h4>'; //Number visualizacions bought
-                div += '</div>';
-                div += '<div>';
-                    div += '<h4>Precio total: '+product.linePrice+'</h4>'; //Number visualizacions bought
-                div += '</div>';
-            div += '</li>';
+        div += '<div>';
+        div += '<h3>Titulo del video: ' + product.name + '</h3>'; //Title of the video
+        div += '</div>';
+        div += '<div>';
+        div += '<h3>Precio unitario: ' + product.price + '</h3>'
+        div += '</div>';
+        div += '<div class="quantity">';
+        div += '<i class="fas fa-minus-circle"></i><h4>Cantidad: ' + product.quantity + '</h4><i class="fas fa-plus-circle"></i>'; //Number visualizacions bought
+        div += '</div>';
+        div += '<div>';
+        div += '<h4>Precio total: ' + product.linePrice + '</h4>'; //Number visualizacions bought
+        div += '</div>';
+        div += '</li>';
     } else {
         var div = 'Error en la ruta de la base de datos';
     }
@@ -55,14 +55,14 @@ function loadProductsInDivCar(productsJSON, divContainer) {
 }
 
 function loadProductsShopCar() {
-    
+
     let divContainer = document.getElementById('ulCookieCar');
     divContainer.innerHTML = '';
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            
+
             let response = JSON.parse(this.responseText);
 
             if (response.status == 'OK') {
@@ -78,7 +78,7 @@ function loadProductsShopCar() {
     xhttp.send();
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-    
+document.addEventListener("DOMContentLoaded", function (event) {
+
     loadProductsShopCar();
 });

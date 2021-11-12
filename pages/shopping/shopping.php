@@ -24,6 +24,7 @@
             <div id="shopContainer">
             </div>
             <div id="divCookieCar">
+                <h2>Mis compras</h2>
                 <ul id="ulCookieCar">
 
                 </ul>
