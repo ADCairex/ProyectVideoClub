@@ -1,3 +1,5 @@
+
+
 function addToShopCar(idProduct) {
 
     var xhttp = new XMLHttpRequest();				
