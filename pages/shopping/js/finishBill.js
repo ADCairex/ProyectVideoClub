@@ -6,12 +6,16 @@ function finishBill() {
             let response = JSON.parse(this.responseText);
 
             if (response.status == 'OK') {
-                alert('Factura generada con exito');
                 document.getElementById('billBt').remove();
                 document.getElementById('detailBill').remove();
-                document.getElementById('deleteBill').remove();                
-                loadProductsShopCar();
-                loadProducts();
+                document.getElementById('deleteBill').remove();
+                alert('Factura generada con exito');
+                
+
+                xhttp.open('POST', 'php/sendMail.php', true);
+                xhttp.send();
+                window.location.href = "../shopping/shopping.php";
+
             } else {
                 alert('Ha habido un error al generar la factura');
             }
