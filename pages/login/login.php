@@ -13,6 +13,8 @@
     <section class="features">
         <div id="formsDiv">
             <div id="newClient" style="display: none;">
+
+        <!-- Call AddUser Function -->
                 <form onsubmit="return addUser();" method="POST" id="formulario">
                     <h2>Sign up</h2>
                     <label for="addUsername"></label>
@@ -26,16 +28,10 @@
                     <label for="addPass"></label>
                     <input type="password" name="addPass" id="addPass" placeholder="Password" required>
                     <input type="submit" value="Enviar" id="Entrar" name="Enviar">
-                    <div id="addko" style="display: none; color:red; ">
-                        <p>Something has gone wrong!</p>
-                    </div>
-                    <div id="addok" style="display: none; color:green; ">
-                        <p>¡Correct Login!</p>
-                    </div>
-                    <p>Do you already have an account?<span onclick="backRegisterUser()">Login</span></p>
                 </form>
             </div>
             <div id="startClient" style="display: none;">
+        <!-- Call CheckData Function -->
                 <form onsubmit="return checkData();" method="POST" id="formulario">
                     <h2>Sign In</h2>
                     <label for="username"></label>

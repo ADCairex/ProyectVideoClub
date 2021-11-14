@@ -9,10 +9,11 @@ try {
 		$user = $_POST['username'];
 		$pass = $_POST['pass'];
 
+	//Call UserExist Function to 
 		if (checkUserExist($user)) {
 			$userInfo = getUserData('', $user);
 			if ($userInfo == 'No exist') {
-				echo getResponse('KO', 'Error al iniciar sesion');
+				echo getResponse('KO', 'Failed to Login');
 			} else {
 				if ($pass == $userInfo['pass']) {
 					
@@ -20,21 +21,21 @@ try {
 					$_SESSION['username'] = $userInfo['idUser'];
 					$_SESSION['name'] = $userInfo['name'];
 					$_SESSION['LAST_ACTIVITY'] = time(); // update last activity
-					echo getResponse('OK', 'Inicio de sesion correcto');
+					echo getResponse('OK', 'Successful login');
 				} else {
-					echo getResponse('KO', 'Error al iniciar sesion');
+					echo getResponse('KO', 'Failed to Login');
 				}
 			}
 			
 		} else {
-			echo getResponse('KO', 'Usuario no existe');
+			echo getResponse('KO', 'User does not existUsuario no existe');
 		}
 
 	} else {
-		echo getResponse("KO","Tipo de petición incorrecta");
+		echo getResponse("KO","Wrong request type");
 	}
 
 } catch(Exception $e) {
-	echo getResponse("KO","Error interno");
+	echo getResponse("KO","Internal error");
 }
 ?>
