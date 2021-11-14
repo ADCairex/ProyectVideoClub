@@ -7,7 +7,6 @@
     try {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $idCategory = $_POST['id'];
-
             $products = getProductByCategory($idCategory);
             
             if (is_null($products)) {

@@ -17,8 +17,6 @@ function addUser() {
         }
     }
 
-
-
     //Monto los parámetros de la llamada
     let username = document.getElementById("addUsername").value;
     let name = document.getElementById("addName").value;

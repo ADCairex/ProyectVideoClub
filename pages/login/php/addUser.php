@@ -18,6 +18,7 @@
 				$userInfo = getUserData('', $username);
 				session_start();
 				$_SESSION['username'] = $userInfo['idUser'];
+				$_SESSION['name'] = $userInfo['name'];
 				
 			} else {
 				echo getResponse('KO', 'Error al agregar el usuario');

@@ -1,6 +1,6 @@
 <?php
     try {
-        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub;charset=UTF8', 'root', '');
+        $dbServer = new PDO('mysql:host=localhost;dbname=ProyectVideoClub;charset=UTF8', 'root', 'root');
     } catch (PDOException $e) {
         var_dump("!Error!: " . $e->getMessage());
     }

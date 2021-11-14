@@ -1,4 +1,4 @@
-function comprobarDatos() {
+function checkData() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -7,19 +7,16 @@ function comprobarDatos() {
 
 
             if (response.status === "OK") {
-                alert('correcto');
+                alert('Correct Login');
 
                 //redirigir a home		
                 window.location.href = "../shopping/shopping.php";
             } else {
-                alert('incorrecto');
+                alert('Incorrect Login');
 
-            } 
+            }
         }
     }
-
-    //Oculto los mensajes de error del login
-    document.getElementById("ko").style.display = "none";
 
     //Monto los parámetros de la llamada
     let username = document.getElementById("username").value;

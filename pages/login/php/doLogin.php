@@ -18,6 +18,8 @@ try {
 					
 					session_start();
 					$_SESSION['username'] = $userInfo['idUser'];
+					$_SESSION['name'] = $userInfo['name'];
+					$_SESSION['LAST_ACTIVITY'] = time(); // update last activity
 					echo getResponse('OK', 'Inicio de sesion correcto');
 				} else {
 					echo getResponse('KO', 'Error al iniciar sesion');

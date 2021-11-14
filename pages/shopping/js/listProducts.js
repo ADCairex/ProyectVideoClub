@@ -1,6 +1,6 @@
 function createDivProduct(product, divContainer) {
     if (product.routProduct.includes('.mp3')) {
-        var div = '<div class="containerBox">';
+        var div = '<form class="containerBox" onsubmit="return showProduct();" method="GET">';
         div += '<div class="productBoxMusic">';
         div += '<div class="musicBox">';
         div += '<audio controls id="' + product.idProduct + '">';
@@ -13,7 +13,8 @@ function createDivProduct(product, divContainer) {
         // div += '</div>';
         div += '<div class="metaMusicBoxDescription">';
         div += '<div>';
-        div += '<h3>' + product.name + '</h3>'; //Title of the video
+        div += '<input type="submit" value="' + product.name + '" id="product" name="' + product.name + '">';
+        // div += '<button onclick="getProductData(' + product.idProduct + ')">' + product.name + '</button>'; //Title of the video
         div += '</div>';
         // div += '<div>';
         //     div += '<h4> 19 visualizaciones</h4>'; //Number of video views
@@ -22,18 +23,19 @@ function createDivProduct(product, divContainer) {
         //     div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
         // div += '</div>';
         div += '<div>';
-        div += '<h4>Quedan: ' + product.stock + '</h4>'; //Time ago the video was upload
+        div += '<h4>Stock: ' + product.stock + '</h4>'; //Time ago the video was upload
         div += '</div>';
         div += '<div>';
-        div += '<h4>Cantidad: <input type="text" id="quantity' + product.idProduct + '"></h4>'; //Quantity of products you buy
+        div += '<h4><input placeholder="Quantity"  type="text" id="quantity' + product.idProduct + '"></h4>'; //Quantity of products you buy
         div += '</div>';
         div += '<div>';
         div += '<button onclick="addToShopCar(' + product.idProduct + ')">Agregar al carrito</button>'; //Change for an icon of a buy cest
         div += '</div>';
         div += '<div>';
-        div += '</div>';
+        div += '</form>';
     } else if (product.routProduct.includes('.mp4')) {
-        var div = '<div class="containerBox">';
+        var div = '<form class="containerBox" onsubmit="return showProduct();" method="GET">';
+
         div += '<div class="productBoxVideo">';
         div += '<div class="videoBox">';
         div += '<video controls id="' + product.idProduct + '">';
@@ -46,7 +48,8 @@ function createDivProduct(product, divContainer) {
         // div += '</div>';
         div += '<div class="metaVideoBoxDescription">';
         div += '<div>';
-        div += '<h3>' + product.name + '</h3>'; //Title of the video
+        div += '<input type="submit" value="' + product.name + '" id="product" name="' + product.name + '">';
+        // div += '<button onclick="getProductData(' + product.idProduct + ')">' + product.name + '</button>'; //Title of the video
         div += '</div>';
         // div += '<div>';
         //     div += '<h4> 19 visualizaciones</h4>'; //Number of video views
@@ -55,16 +58,16 @@ function createDivProduct(product, divContainer) {
         //     div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
         // div += '</div>';
         div += '<div>';
-        div += '<h4>Quedan: ' + product.stock + '</h4>'; //Time ago the video was upload
+        div += '<h4>Stock: ' + product.stock + '</h4>'; //Time ago the video was upload
         div += '</div>';
         div += '<div>';
-        div += '<h4>Cantidad: <input type="text" id="quantity' + product.idProduct + '"></h4>'; //Quantity of products you buy
+        div += '<h4><input placeholder="Quantity" type="text" id="quantity' + product.idProduct + '"></h4>'; //Quantity of products you buy
         div += '</div>';
         div += '<div>';
-        div += '<button onclick="addToShopCar(' + product.idProduct + ')">Agregar al carrito</button>'; //Change for an icon of a buy cest
+        // div += '<button onclick="addToShopCar(' + product.idProduct + ')">Agregar al carrito</button>'; //Change for an icon of a buy cest
         div += '</div>';
         div += '<div>';
-        div += '</div>';
+        div += '</form>';
     } else {
         var div = 'Error en la ruta de la base de datos';
     }

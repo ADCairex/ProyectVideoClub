@@ -502,7 +502,7 @@ cursor: pointer;
 }
 
 .mainBox #divCookieCar #billBt{
-   display: none;
+   display: none !important;
     }
     
 .container-main-bill #divCookieCar #detailBill{

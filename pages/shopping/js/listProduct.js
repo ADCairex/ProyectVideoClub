@@ -1,6 +1,8 @@
+
+
 function createDivProduct(product, divContainer) {
     if (product.routProduct.includes('.mp3')) {
-        var div = '<div class="containerBox">';
+        var div = '<form class="containerBox" onsubmit="return showProduct();" method="GET">';
         div += '<div class="productBoxMusic">';
         div += '<div class="musicBox">';
         div += '<audio controls id="' + product.idProduct + '">';
@@ -15,12 +17,6 @@ function createDivProduct(product, divContainer) {
         div += '<div>';
         div += '<h3>' + product.name + '</h3>'; //Title of the video
         div += '</div>';
-        // div += '<div>';
-        //     div += '<h4> 19 visualizaciones</h4>'; //Number of video views
-        // div += '</div>';
-        // div += '<div>';
-        //     div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
-        // div += '</div>';
         div += '<div>';
         div += '<h4>Cantidad: <input type="text" id="quantity' + product.idProduct + '"></h4>'; //Quantity of products you buy
         div += '</div>';
@@ -30,7 +26,7 @@ function createDivProduct(product, divContainer) {
         div += '<div>';
         div += '</div>';
     } else if (product.routProduct.includes('.mp4')) {
-        var div = '<div class="containerBox">';
+        var div = '<form class="containerBox" onsubmit="return showProduct();" method="GET">';
         div += '<div class="productBoxVideo">';
         div += '<div class="videoBox">';
         div += '<video controls id="' + product.idProduct + '">';
@@ -45,12 +41,6 @@ function createDivProduct(product, divContainer) {
         div += '<div>';
         div += '<h3>' + product.name + '</h3>'; //Title of the video
         div += '</div>';
-        // div += '<div>';
-        // div += '<h4> 19 visualizaciones</h4>'; //Number of video views
-        // div += '</div>';
-        // div += '<div>';
-        // div += '<h4>hace 5 horas</h4>'; //Time ago the video was upload
-        // div += '</div>';
         div += '<div>';
         div += '<h4>Cantidad: <input type="text" id="quantity' + product.idProduct + '"></h4>'; //Quantity of products you buy
         div += '</div>';
@@ -66,40 +56,38 @@ function createDivProduct(product, divContainer) {
     divContainer.innerHTML += div;
 }
 
-function loadProductsInDiv(productsJSON, divContainer) {
-    if (productsJSON.length <= 0) {
-        alert('No hay productos que mostrar');
-    } else {
-        for (let i in productsJSON) {
-            let product = productsJSON[i];
-            createDivProduct(product, divContainer);
-        }
-    }
-}
 
-function loadProductsShopCar() {
 
-    let divContainer = document.getElementById('shopContainer');
+function showProduct() {
+    let divContainer = document.getElementById('shopContainerProduct');
     divContainer.innerHTML = '';
-
+    // alert("Entra");
+    debugger;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-
             let response = JSON.parse(this.responseText);
 
             if (response.status == 'OK') {
-                loadProductsInDiv(response.data, divContainer);
+                // loadProductsInDiv(response.data, divContainer);
+                window.location.href = "../shopping/product.php";
             } else {
                 alert('Se ha producido un error prueba mas tarde');
             }
         }
     }
-    xhttp.open('GET', 'php/getProducts.php', true);
-    xhttp.send();
+
+    let idProduct = document.getElementById("idProduct").value;
+    var params = "idProduct=" + idProduct;
+
+    xhttp.open('GET', 'php/getProduct.php', true);
+    xhttp.send(params);
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    loadProductsShopCar();
+    showProduct();
 });
+
+
+
